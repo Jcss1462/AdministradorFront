@@ -1,0 +1,38 @@
+<div id="container">
+
+  <div id="loginbox">
+
+    <div id="head">
+
+      <b><i class="fas fa-lightbulb"></i></b>
+      <p><b>GREENLIGTH</b></p>
+
+    </div>
+
+    <div id="content">
+
+
+
+      <div id="user" class="entradas">
+          <input type="text" name="user" placeholder="USER" (keyup)= "updateUser($event)">
+      </div>
+
+      <div id="password" class="entradas">
+          <input type="text" name="password" placeholder="PASSWORD" (keyup)= "updatePassword($event)">
+      </div>
+
+      <div id="log">
+
+          <button type="button" (click)="login()"><b>LOG IN</b></button>
+
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+</div>
+
