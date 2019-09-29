@@ -14,11 +14,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 //servicios
 import{LoginService} from './services/api';
+import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RecuperarPasswordComponent
   ],
   imports: [
     BrowserModule,

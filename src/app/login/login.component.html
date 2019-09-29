@@ -14,16 +14,26 @@
 
 
       <div id="user" class="entradas">
-          <input type="text" name="user" placeholder="User" (keyup)= "updateUser($event)">
+        <input type="text" name="user" placeholder="User" (keyup)="updateUser($event)">
       </div>
 
       <div id="password" class="entradas">
-          <input type="password" name="password" placeholder="Password" (keyup)= "updatePassword($event)">
+        <input type="password" name="password" placeholder="Password" (keyup)="updatePassword($event)">
       </div>
 
       <div id="log">
 
+        <div id="boton">
           <button type="button" (click)="login()"><b>Log in</b></button>
+        </div>
+
+        <div id="olvidarBox">
+
+          <div id="letrero">
+            <a routerLink="/recuperar" routerLinkActive="active"><b>¿Olvido su contraseña?</b></a>
+          </div>
+
+        </div>
 
       </div>
 
@@ -35,4 +45,3 @@
   </div>
 
 </div>
-
