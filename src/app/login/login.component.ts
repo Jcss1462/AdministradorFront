@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       this._Login.loginAction(this.user, this.password)
         .subscribe((data) => {
 
-          if (data.length == 0) {
+          if (data.length == undefined) {
 
             alert("Nombre de usuario o contraseña incorrecto");
 
