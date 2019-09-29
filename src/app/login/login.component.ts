@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     console.log(this.user);
     //console.log(this.password);
 
-    if (this.user == undefined || this.password == undefined) {
+    if (this.user == undefined || this.password == undefined||this.user == 0 || this.password == 0) {
 
       alert("Alguno de los dos campos se encuentra vacio");
 
