@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 //componentes
 import { LoginComponent } from './login/login.component';
+import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 
 
 //http
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 //servicios
 import{LoginService} from './services/api';
-import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
+import{RecuperacionService} from './services/api';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { RecuperarPasswordComponent } from './recuperar-password/recuperar-passw
   ],
   providers: [
 
-    LoginService
+    LoginService,
+    RecuperacionService
 
   ],
   bootstrap: [AppComponent]
