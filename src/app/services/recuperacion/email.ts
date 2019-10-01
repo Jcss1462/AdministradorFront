@@ -1,3 +1,3 @@
 export class Email {
-    email: string;
+    val: string;
 }

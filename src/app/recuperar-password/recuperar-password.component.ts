@@ -13,6 +13,8 @@ export class RecuperarPasswordComponent implements OnInit {
 
   email:any;
 
+  resultado: Email[];
+
   constructor(private _recuperacion: RecuperacionService) { }
 
   ngOnInit() {
@@ -37,17 +39,18 @@ export class RecuperarPasswordComponent implements OnInit {
       this._recuperacion.recuperacion(this.email)
         .subscribe((data) => {
 
-          if (data.length == 0) {
+         // console.log(data.val);
+          
+          if (data == undefined) {
 
             alert("Correo no registra en la base de datos");
 
           } else {
 
-            console.log(data.length);
-            // this.datainfo = data;
-            //alert("bienvendio " + data[0].nombre);
-            //localStorage.setItem("canart", JSON.stringify(data));
+            this.resultado = data;
 
+            alert("Contraseña enviada, revise su correo");
+        
           }
         }, (error) => {
           console.log(error.message);
