@@ -1,3 +1,3 @@
 export class Email {
-    val: string;
+    val: Number
 }

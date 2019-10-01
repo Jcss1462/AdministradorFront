@@ -1,6 +1,6 @@
 export class Data {
-    id_usuario: string;
+    id_usuario: Number;
     nombre: string;
     username: string;
-    id_tipo: string;
+    id_tipo: Number;
 }

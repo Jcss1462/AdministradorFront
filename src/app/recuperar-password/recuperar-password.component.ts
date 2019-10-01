@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Email } from '../services/api';
 import { RecuperacionService } from '../services/api';
 
+
 @Component({
   selector: 'app-recuperar-password',
   templateUrl: './recuperar-password.component.html',
@@ -39,15 +40,13 @@ export class RecuperarPasswordComponent implements OnInit {
       this._recuperacion.recuperacion(this.email)
         .subscribe((data) => {
 
-         // console.log(data.val);
+         console.log(data);
           
-          if (data == undefined) {
+          if (data.length == undefined) {
 
             alert("Correo no registra en la base de datos");
 
           } else {
-
-            this.resultado = data;
 
             alert("Contraseña enviada, revise su correo");
         

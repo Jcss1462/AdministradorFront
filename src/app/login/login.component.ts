@@ -56,9 +56,9 @@ export class LoginComponent implements OnInit {
 
           } else {
 
-            console.log(data.length);
+            console.log(data);
             this.datainfo = data;
-            alert("bienvendio " + data[0].nombre);
+            alert("bienvendio " + data[0].nombre+ " tipo: "+data[0].id_tipo);
             //localStorage.setItem("canart", JSON.stringify(data));
 
           }
