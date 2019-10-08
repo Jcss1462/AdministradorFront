@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 //componentes
 import { LoginComponent } from './login/login.component';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
+import { EntidadesComponent } from './entidades/entidades.component';
 
 
 //http
@@ -16,13 +17,16 @@ import { HttpClientModule } from '@angular/common/http';
 //servicios
 import{LoginService} from './services/api';
 import{RecuperacionService} from './services/api';
+import { AddUsserComponent } from './add-usser/add-usser.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RecuperarPasswordComponent
+    RecuperarPasswordComponent,
+    EntidadesComponent,
+    AddUsserComponent
   ],
   imports: [
     BrowserModule,

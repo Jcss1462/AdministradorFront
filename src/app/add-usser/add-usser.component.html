@@ -1,0 +1,55 @@
+<div id="container">
+
+  <div id="loginbox">
+
+    <div id="head">
+
+
+      <p><b>Registro</b></p>
+
+    </div>
+
+    <form>
+      <div id="content">
+
+
+        <div id="name" class="entradas">
+          <input type="text" id="name" name="name" placeholder="Name" (keyup)="updateNombre($event)" required>
+        </div>
+
+        <div id="user" class="entradas">
+          <input type="text" id="email" name="user" placeholder="Email" (keyup)="updateEmail($event)" required>
+        </div>
+
+        <div id="password" class="entradas">
+          <input type="password" id="password" name="password" placeholder="Password" min="6" (keyup)="updatePassword($event)" required>
+        </div>
+
+        <div id="tipo" class="entradas">
+
+          <select (change)="updateTipo($event)"  id="tipo" required>
+            <option selected disabled hidden>Tipo:</option>
+            <option value="trabajador">Trabajador</option>
+            <option value="cliente">Cliente</option>
+            <option value="inversor">Inversor</option>
+          </select>
+
+        </div>
+
+        <div id="log">
+
+          <div id="boton">
+            <button type="button" (click)="signUp()"><b>Sign in</b></button>
+          </div>
+
+
+        </div>
+
+
+      </div>
+    </form>
+
+
+  </div>
+
+</div>

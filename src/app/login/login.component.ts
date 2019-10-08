@@ -58,8 +58,12 @@ export class LoginComponent implements OnInit {
 
             console.log(data);
             this.datainfo = data;
-            alert("bienvendio " + data[0].nombre+ " tipo: "+data[0].id_tipo);
+            alert("bienvendio " + data[0].nombre+ " tipo: "+data[0].tipo);
             //localStorage.setItem("canart", JSON.stringify(data));
+
+            if(data[0].tipo=="trabajador"||data[0].tipo=="cliente"){
+              window.location.href = '/entidad';
+            }
 
           }
         }, (error) => {
