@@ -29,9 +29,9 @@
 
           <select (change)="updateTipo($event)"  id="tipo" required>
             <option selected disabled hidden>Tipo:</option>
-            <option value="trabajador">Trabajador</option>
-            <option value="cliente">Cliente</option>
-            <option value="inversor">Inversor</option>
+            <option value="1">Trabajador</option>
+            <option value="2">Cliente</option>
+            <option value="3">Inversor</option>
           </select>
 
         </div>
@@ -39,7 +39,7 @@
         <div id="log">
 
           <div id="boton">
-            <button type="button" (click)="signUp()"><b>Sign in</b></button>
+            <button type="submit" (click)="signUp()"><b>Sign in</b></button>
           </div>
 
 

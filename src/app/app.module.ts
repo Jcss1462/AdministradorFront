@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 import { EntidadesComponent } from './entidades/entidades.component';
-
+import { AddUsserComponent } from './add-usser/add-usser.component';
 
 //http
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 //servicios
 import{LoginService} from './services/api';
 import{RecuperacionService} from './services/api';
-import { AddUsserComponent } from './add-usser/add-usser.component';
+import{UssersService} from './services/api';
+
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AddUsserComponent } from './add-usser/add-usser.component';
   providers: [
 
     LoginService,
-    RecuperacionService
+    RecuperacionService,
+    UssersService
 
   ],
   bootstrap: [AppComponent]
