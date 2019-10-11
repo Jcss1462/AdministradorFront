@@ -8,6 +8,7 @@ import{UssersService} from '../services/ussers/ussers.service';
 import{Data} from '../services/login/data';
 import{Email} from '../services/recuperacion/email';
 import{Usserinfo} from '../services/ussers/usserinfo';
+import{Usserdata} from '../services/ussers/usserdata';
 
 
 export{
@@ -20,6 +21,7 @@ export{
     //objetos
     Data,
     Email,
-    Usserinfo
+    Usserinfo,
+    Usserdata
    
 };

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 //conexion con la base de datos
 import { Usserinfo } from './usserinfo';
+import { Usserdata } from './usserdata';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -36,4 +37,13 @@ export class UssersService {
     return this.http.post<Usserinfo>(this.resourceURL, usser, httpOptions)
 
   }
+
+
+  getData(usser: Number): Observable<Usserdata[]> {
+
+    return this.http.get<Usserdata[]>(this.resourceURL + "?id_usuario=" +usser);
+
+  }
+
+
 }
