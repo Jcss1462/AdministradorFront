@@ -9,6 +9,34 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background: #ECF0F5;
 
+  #backBox{
+
+    width: 150px;
+    height: 75px;
+    //background: #00F496;
+    position: absolute;
+    display: flex;  
+    top: 1vh;
+    left: 1vw;
+    justify-content: center;
+    align-items: center;
+    #backBtn{
+        width: 70%;
+        height: 60%;
+        background: #7C7C7C;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        color: white; 
+    }#backBtn:hover{
+        cursor: pointer;
+        background: rgb(97, 97, 97);
+    }
+
+
+  }
+
 
   #loginbox{
 

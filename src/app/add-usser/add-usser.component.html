@@ -1,5 +1,13 @@
 <div id="container">
 
+  <div id="backBox">
+
+    <div id="backBtn" (click)="goBack()">
+      Atras
+    </div>
+
+  </div>
+
   <div id="loginbox">
 
     <div id="head">
@@ -22,12 +30,13 @@
         </div>
 
         <div id="password" class="entradas">
-          <input type="password" id="password" name="password" placeholder="Password" min="6" (keyup)="updatePassword($event)" required>
+          <input type="password" id="password" name="password" placeholder="Password" min="6"
+            (keyup)="updatePassword($event)" required>
         </div>
 
         <div id="tipo" class="entradas">
 
-          <select (change)="updateTipo($event)"  id="tipo" required>
+          <select (change)="updateTipo($event)" id="tipo" required>
             <option selected disabled hidden>Tipo:</option>
             <option value="1">Trabajador</option>
             <option value="2">Cliente</option>

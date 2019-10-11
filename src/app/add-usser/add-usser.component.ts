@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
+
+//importacion par obtener la ultima pagina visitada
+import { Location } from '@angular/common';
+
 //importo servicios
 import { Usserinfo } from '../services/api';
 import { UssersService } from '../services/api';
@@ -21,11 +25,14 @@ export class AddUsserComponent implements OnInit {
   expresionMail = /\w+@+\w+\.+[a-z]/;
 
 
-  constructor(private _Usser: UssersService) { }
+  constructor(private _Usser: UssersService,private location: Location) { }
 
   ngOnInit() {
   }
 
+  goBack(): void {
+    this.location.back();
+  }
 
   updateNombre(e) {
     this.nombre = e.target.value;
@@ -116,9 +123,6 @@ export class AddUsserComponent implements OnInit {
         console.log(error.message);
       }
       );
-
-
-
 
   }
 
