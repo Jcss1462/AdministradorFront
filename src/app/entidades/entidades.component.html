@@ -9,7 +9,8 @@
 
         <div id="busbar" class="entradas">
 
-          <input type="text" name="user" placeholder="Buscar" [(ngModel)]="busqueda" (keyup)="updateBusqueda($event)">
+          <input type="text" name="user" placeholder="Buscar" [(ngModel)]="busqueda" (keyup)="updateBusqueda($event)"
+            (keydown)="updateColor($event)">
 
         </div>
 
@@ -104,7 +105,7 @@
 
           <div id="optmenu">
 
-            <div id="optbtn">
+            <div id="optbtn" (click)="showAdd($event)">
 
               <i class="fas fa-plus"></i>
 
@@ -147,7 +148,7 @@
 
 
           </div>
-          
+
 
         </div>
 
@@ -156,6 +157,14 @@
     </div>
 
   </div>
+
+
+</div>
+
+
+<!--------------------------------añadir--------------------------------------->
+
+<div id="añadir">
 
 
 </div>

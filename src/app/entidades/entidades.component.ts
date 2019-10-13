@@ -30,7 +30,7 @@ export class EntidadesComponent implements OnInit {
   tmp: any[];
   countminnus: any;
   size: any;
-  globalSize:any;
+  globalSize: any;
 
 
 
@@ -62,6 +62,11 @@ export class EntidadesComponent implements OnInit {
         console.log(data);
         this.listEntidad = data;
 
+
+        //tamaño global
+        this.globalSize = this.listEntidad.length;
+
+        //asignar color al elemento
         let colorindex = 0;
         for (var idx = 0; idx < data.length; idx++) {
 
@@ -69,14 +74,13 @@ export class EntidadesComponent implements OnInit {
             colorindex = 0;
           }
 
-          this.cambiarColor(idx, colorindex);
+          this.listEntidad[idx].color = this.asignarcolor(colorindex);
           colorindex++;
 
-        }
+          //pinto el elemento
+          this.pintarAlcargar(idx, this.listEntidad);
 
-        //tamaño global
-        this.globalSize=this.listEntidad.length;
-        
+        }
 
 
 
@@ -89,22 +93,28 @@ export class EntidadesComponent implements OnInit {
   }
 
 
-  async cambiarColor(index, color) {
-
+  asignarcolor(color) {
     let colorArray = ['#00EEFF', '#FFFF00', '#FF0000', '#00FF00', '#9200FF'];
+    return colorArray[color];
+  }
 
-
+  pintarAlcargar(index, lista: Traent[]) {
     window.addEventListener('load', function () {
-
       let a = document.getElementsByClassName('fas fa-circle')[index];
 
-      a.setAttribute("style", "color:" + colorArray[color]);
-
-      //console.log(a);
+      a.setAttribute("style", "color:" + lista[index].color);
     })
 
   }
 
+  pintar(index, lista: Traent[]) {
+
+    console.log("idx" + index);
+    let a = document.getElementsByClassName('fas fa-circle')[index];
+    a.setAttribute("style", "color:" + lista[index].color);
+
+
+  }
 
   updateBusqueda(e) {
 
@@ -130,23 +140,36 @@ export class EntidadesComponent implements OnInit {
           this.tmp.push(this.listEntidad);
         }
 
-        
+
         this.listEntidad = this.filterItems(this.busqueda);
-        
-        
+
+
       }
 
-      if(this.listEntidad.length==this.globalSize){
+      if (this.listEntidad.length == this.globalSize) {
         console.log("atun");
-        this.tmp=new Array;
+        this.tmp = new Array;
         this.tmp.push(this.listEntidad);
       }
 
-      console.log(this.countminnus);
-      console.log(this.tmp);
-      
-      
+      //console.log(this.countminnus);
+      //console.log(this.tmp);
+      //console.log(this.listEntidad);
+
     }
+
+
+  }
+
+  updateColor(e) {
+
+    console.log(this.listEntidad);
+    //pinto de nuevo
+    for (var idx = 0; idx < this.listEntidad.length; idx++) {
+      //pinto el elemento
+      this.pintar(idx, this.listEntidad);
+    }
+
 
   }
 
@@ -161,6 +184,19 @@ export class EntidadesComponent implements OnInit {
         return false;
       }
     })
+  }
+
+  
+
+  showAdd(e) {
+    let a = document.getElementById('añadir');
+    if (a.style.display == "none") {
+      a.setAttribute("style", "display: inline-block");
+    }else{
+
+      a.setAttribute("style", "display: none");
+
+    }
   }
 
 

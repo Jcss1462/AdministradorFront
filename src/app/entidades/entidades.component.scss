@@ -270,6 +270,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    font-size: 18px;
 
                     #entidad{
                         width: 50%;
@@ -278,7 +279,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
-                        font-size: 17px;
+                        
                     }
 
                     #cantidad{
@@ -288,7 +289,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-size: 17px;
+                        
                     }
 
                     #editar{
@@ -298,7 +299,7 @@
                         display: flex;
                         align-items: center;
                         justify-content: flex-end;
-                        font-size: 17px;
+                        
                     }
 
 
@@ -319,5 +320,24 @@
     }
 
 
+  
+
+
+}
+
+
+#añadir{
+
+    width: 50%;
+    height: 50%;
+    min-width: 800px;
+    min-height: 300px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgba(160, 160, 160, 0.733);
+    position: absolute;
+    top:25%;
+    left:25%;
+    display: none;
 }
 
