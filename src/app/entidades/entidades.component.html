@@ -35,7 +35,7 @@
 
           <div id="añadirUsuario" class=opt (click)="redirectAddUsser()">
 
-            <div class="logo" >
+            <div class="logo">
               <i class="fas fa-user-plus"></i>
             </div>
             <div class="mesage">
@@ -78,6 +78,77 @@
   </div>
 
   <div class="contenido">
+
+    <div id="cabecera">
+      <div id="encabezado" *ngFor="let key of usserData">
+        <b>Bienvenido</b>&ensp;{{key.nombre}}
+      </div>
+    </div>
+
+    <div id="tabbox">
+
+      <div id="marc">
+
+        <div id="entidadbox">
+
+          <div id="textbox">
+
+            <div id="text">
+
+              Entidades
+
+            </div>
+
+
+          </div>
+
+          <div id="optmenu">
+
+            <div id="optbtn">
+
+              <i class="fas fa-plus"></i>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div class="item" *ngFor="let key of listEntidad; let i = index">
+
+          <div class="elm" id="1">
+
+            <div id="entidad">
+              {{key.entidad}}
+            </div>
+
+          </div>
+
+          <div class="elm" id="2">
+
+            <div id="cantidad">
+              <b><i id={{i}}item class="fas fa-circle"></i></b>&ensp;{{key.cantidad_sucursales}} sucuersales
+            </div>
+
+          </div>
+
+          <div class="elm" id="3">
+
+            <div id="editar">
+
+              <i class="fas fa-pencil-alt"></i>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
 

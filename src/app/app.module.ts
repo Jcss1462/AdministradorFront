@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import{LoginService} from './services/api';
 import{RecuperacionService} from './services/api';
 import{UssersService} from './services/api';
+import{TrabajadorEntidadService} from './services/api';
 
 
 
@@ -38,7 +39,8 @@ import{UssersService} from './services/api';
 
     LoginService,
     RecuperacionService,
-    UssersService
+    UssersService,
+    TrabajadorEntidadService
 
   ],
   bootstrap: [AppComponent]
