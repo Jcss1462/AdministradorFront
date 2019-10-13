@@ -9,7 +9,7 @@
 
         <div id="busbar" class="entradas">
 
-          <input type="text" name="user" placeholder="Buscar">
+          <input type="text" name="user" placeholder="Buscar" [(ngModel)]="busqueda" (keyup)="updateBusqueda($event)">
 
         </div>
 
@@ -115,34 +115,39 @@
 
         </div>
 
-        <div class="item" *ngFor="let key of listEntidad; let i = index">
+        <div id="itemcontainer">
 
-          <div class="elm" id="1">
+          <div class="item" *ngFor="let key of listEntidad; let i = index">
 
-            <div id="entidad">
-              {{key.entidad}}
-            </div>
+            <div class="elm" id="1">
 
-          </div>
-
-          <div class="elm" id="2">
-
-            <div id="cantidad">
-              <b><i id={{i}}item class="fas fa-circle"></i></b>&ensp;{{key.cantidad_sucursales}} sucuersales
-            </div>
-
-          </div>
-
-          <div class="elm" id="3">
-
-            <div id="editar">
-
-              <i class="fas fa-pencil-alt"></i>
+              <div id="entidad">
+                {{key.entidad}}
+              </div>
 
             </div>
 
-          </div>
+            <div class="elm" id="2">
 
+              <div id="cantidad">
+                <b><i id={{i}}item class="fas fa-circle"></i></b>&ensp;{{key.cantidad_sucursales}} sucuersales
+              </div>
+
+            </div>
+
+            <div class="elm" id="3">
+
+              <div id="editar">
+
+                <i class="fas fa-pencil-alt"></i>
+
+              </div>
+
+            </div>
+
+
+          </div>
+          
 
         </div>
 
