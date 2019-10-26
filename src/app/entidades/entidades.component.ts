@@ -42,6 +42,8 @@ export class EntidadesComponent implements OnInit {
 
   ngOnInit() {
 
+
+
     this.tmp = new Array;
     this.countminnus = 0;
 
@@ -186,24 +188,40 @@ export class EntidadesComponent implements OnInit {
     })
   }
 
-  
+
 
   showAdd(e) {
     let a = document.getElementById('añadir');
     if (a.style.display == "none") {
       a.setAttribute("style", "display: inline-block");
-    }else{
-
+    } else {
       a.setAttribute("style", "display: none");
+    }
+  }
+
+
+  //esta funcon sirve par ocultar el menu de opciones si hago click fuera de el
+  propieties(e) {
+    console.log(e.target.parentElement.parentElement.id);
+
+    if ((e.target.parentElement.parentElement.id != "optbox")&&(document.getElementById("optbox").classList.value=="active")) {
+
+      document.getElementById("optbox").classList.toggle('active')
+     
 
     }
+
   }
 
 
 
   activarOpt(): void {
-    let activador = document.getElementById("optbox");
-    activador.classList.toggle('active');
+
+    
+      let activador = document.getElementById("optbox");
+      activador.classList.toggle('active');
+     
+  
   }
 
   redirectAddUsser() {

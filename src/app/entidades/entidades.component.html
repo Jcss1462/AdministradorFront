@@ -34,7 +34,7 @@
 
         <div id="optbox">
 
-          <div id="añadirUsuario" class=opt (click)="redirectAddUsser()">
+          <div id="añadirUsuario" class="opt" (click)="redirectAddUsser()">
 
             <div class="logo">
               <i class="fas fa-user-plus"></i>
@@ -45,7 +45,7 @@
 
           </div>
 
-          <div id="eliminarUsuario" class=opt>
+          <div id="eliminarUsuario" class="opt">
 
             <div class="logo">
               <i class="fas fa-user-minus"></i>
@@ -57,7 +57,7 @@
 
           </div>
 
-          <div id="editarPerfil" class=opt>
+          <div id="editarPerfil" class="opt">
 
             <div class="logo">
               <i class="fas fa-cog"></i>
@@ -78,7 +78,7 @@
 
   </div>
 
-  <div class="contenido">
+  <div class="contenido" (click)="propieties($event)">
 
     <div id="cabecera">
       <div id="encabezado" *ngFor="let key of usserData">
@@ -164,7 +164,13 @@
 
 <!--------------------------------añadir--------------------------------------->
 
-<div id="añadir">
+<div id="añadir" style="display: none">
 
+  <div id="cabecera">
+
+  </div>
+  <div id="contenido">
+    
+  </div>
 
 </div>
