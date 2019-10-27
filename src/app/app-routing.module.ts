@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RecuperarPasswordComponent } from './recuperar-password/recuperar-password.component';
 import { EntidadesComponent } from './entidades/entidades.component';
 import { AddUsserComponent } from './add-usser/add-usser.component';
+import { SucursalesComponent } from './sucursales/sucursales.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'recuperar', component: RecuperarPasswordComponent },
   {path: 'entidad', component: EntidadesComponent },
   {path: 'addusser', component: AddUsserComponent },
+  {path: 'sucursales', component: SucursalesComponent },
   {path: '',  component: LoginComponent, pathMatch: 'full'},
 ];
 

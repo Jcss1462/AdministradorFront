@@ -4,3 +4,23 @@
     margin: 0;
     
 }
+
+
+::-webkit-scrollbar{
+    width: 8px; 
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 1px;
+}
+
+
+
+
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+::-webkit-scrollbar-track {
+    background: grey;
+    border-radius: 1px;
+}

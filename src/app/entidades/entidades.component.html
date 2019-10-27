@@ -45,28 +45,7 @@
 
           </div>
 
-          <div id="eliminarUsuario" class="opt">
-
-            <div class="logo">
-              <i class="fas fa-user-minus"></i>
-            </div>
-            <div class="mesage">
-              Eliminar usuario
-            </div>
-
-
-          </div>
-
-          <div id="editarPerfil" class="opt">
-
-            <div class="logo">
-              <i class="fas fa-cog"></i>
-            </div>
-            <div class="mesage">
-              Editar perfil
-            </div>
-
-          </div>
+          
 
         </div>
 
@@ -118,9 +97,10 @@
 
         <div id="itemcontainer">
 
-          <div class="item" *ngFor="let key of listEntidad; let i = index">
+          <div class="item" *ngFor="let key of listEntidad; let i = index" id="{{key.id_entidad}}">
+            
 
-            <div class="elm" id="1">
+            <div class="elm" id="1" (click)="redirectSucursal(key.id_entidad)">
 
               <div id="entidad">
                 {{key.entidad}}
@@ -128,7 +108,7 @@
 
             </div>
 
-            <div class="elm" id="2">
+            <div class="elm" id="2" (click)="redirectSucursal(key.id_entidad)">
 
               <div id="cantidad">
                 <b><i id={{i}}item class="fas fa-circle"></i></b>&ensp;{{key.cantidad_sucursales}} sucuersales
@@ -168,9 +148,27 @@
 
   <div id="cabecera">
 
+    <div id="closebox">
+
+      <i class="fas fa-window-close" (click)="closeadd()"></i>
+
+    </div>
+
   </div>
   <div id="contenido">
-    
+
+    <div id="inputbox">
+
+      <input type="text" name="user" placeholder=" Nueva entidad" [(ngModel)]="nueva">
+
+    </div>
+
+    <div id="añadirbox">
+
+      <button type="submit" (click)="create()"><b>Crear</b></button>
+
+    </div>
+
   </div>
 
 </div>

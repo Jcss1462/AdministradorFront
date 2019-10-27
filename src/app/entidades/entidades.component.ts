@@ -7,6 +7,9 @@ import { UssersService } from '../services/api';
 import { Traent } from '../services/api';
 import { TrabajadorEntidadService } from '../services/api';
 
+import { Entidad } from '../services/api';
+import { EntidadesService } from '../services/api';
+
 //importo para obtener el parametro en la url
 import { Router } from '@angular/router';
 
@@ -24,8 +27,10 @@ export class EntidadesComponent implements OnInit {
 
   usserData: Usserdata[];
   listEntidad: Traent[];
+  newEntidad: Entidad;
 
   busqueda: string;
+  nueva: string;
 
   tmp: any[];
   countminnus: any;
@@ -34,10 +39,10 @@ export class EntidadesComponent implements OnInit {
 
 
 
-  constructor(private _Usser: UssersService, private _traEntidad: TrabajadorEntidadService, private router: Router) {
+  constructor(private _Usser: UssersService, private _traEntidad: TrabajadorEntidadService, private _entidad: EntidadesService, private router: Router) {
     //sacar el parametro id y meterlo en un variable
     this.id_ususario = this.router.parseUrl(this.router.url).queryParams.usser;
-    console.log(this.id_ususario);
+
   }
 
   ngOnInit() {
@@ -50,7 +55,6 @@ export class EntidadesComponent implements OnInit {
     //traer usser data
     this._Usser.getData(this.id_ususario)
       .subscribe((data) => {
-        console.log(data);
         this.usserData = data;
       }, (error) => {
         console.log(error.message);
@@ -61,7 +65,6 @@ export class EntidadesComponent implements OnInit {
 
     this._traEntidad.getEntidades(this.id_ususario)
       .subscribe((data) => {
-        console.log(data);
         this.listEntidad = data;
 
 
@@ -92,6 +95,9 @@ export class EntidadesComponent implements OnInit {
       }
       );
 
+    //////////////////////////////////////////////////
+
+
   }
 
 
@@ -111,7 +117,7 @@ export class EntidadesComponent implements OnInit {
 
   pintar(index, lista: Traent[]) {
 
-    console.log("idx" + index);
+
     let a = document.getElementsByClassName('fas fa-circle')[index];
     a.setAttribute("style", "color:" + lista[index].color);
 
@@ -122,6 +128,7 @@ export class EntidadesComponent implements OnInit {
 
 
     this.size = this.listEntidad.length;
+    console.log("tamaño actual= " + this.size);
 
     if (this.busqueda != undefined) {
 
@@ -137,10 +144,9 @@ export class EntidadesComponent implements OnInit {
           this.countminnus--;
         }
 
-        //detecto si ha habido algun cambio para añadirlo
-        if (this.tmp.length != this.size) {
-          this.tmp.push(this.listEntidad);
-        }
+
+        this.tmp.push(this.listEntidad);
+
 
 
         this.listEntidad = this.filterItems(this.busqueda);
@@ -149,13 +155,13 @@ export class EntidadesComponent implements OnInit {
       }
 
       if (this.listEntidad.length == this.globalSize) {
-        console.log("atun");
+
         this.tmp = new Array;
         this.tmp.push(this.listEntidad);
       }
 
-      //console.log(this.countminnus);
-      //console.log(this.tmp);
+      console.log(this.countminnus);
+      console.log(this.tmp);
       //console.log(this.listEntidad);
 
     }
@@ -165,7 +171,6 @@ export class EntidadesComponent implements OnInit {
 
   updateColor(e) {
 
-    console.log(this.listEntidad);
     //pinto de nuevo
     for (var idx = 0; idx < this.listEntidad.length; idx++) {
       //pinto el elemento
@@ -199,15 +204,58 @@ export class EntidadesComponent implements OnInit {
     }
   }
 
+  closeadd() {
+    let a = document.getElementById('añadir');
+    a.setAttribute("style", "display: none");
+  }
+
 
   //esta funcon sirve par ocultar el menu de opciones si hago click fuera de el
   propieties(e) {
-    console.log(e.target.parentElement.parentElement.id);
 
-    if ((e.target.parentElement.parentElement.id != "optbox")&&(document.getElementById("optbox").classList.value=="active")) {
+
+    if ((e.target.parentElement.parentElement.id != "optbox") && (document.getElementById("optbox").classList.value == "active")) {
 
       document.getElementById("optbox").classList.toggle('active')
-     
+
+
+    }
+
+  }
+
+
+  create() {
+
+
+
+    if ((this.nueva != null) || (this.nueva != "0") || this.nueva != undefined) {
+
+
+      this.newEntidad = new Entidad;
+      this.newEntidad.creador = Number(this.id_ususario);
+      this.newEntidad.entidad = this.nueva;
+
+
+
+      this._entidad
+        .addEntidad(this.newEntidad)
+        .subscribe((data) => {
+
+
+
+          if (data) {
+            alert("entidad agragada exitosamente");
+            this.ngOnInit();
+          } else {
+            alert("Ha ocurrido un problema y no se ha completado la operacion");
+          }
+
+
+        }, (error) => {
+          console.log(error.message);
+        }
+        );
+
 
     }
 
@@ -217,15 +265,21 @@ export class EntidadesComponent implements OnInit {
 
   activarOpt(): void {
 
-    
-      let activador = document.getElementById("optbox");
-      activador.classList.toggle('active');
-     
-  
+
+    let activador = document.getElementById("optbox");
+    activador.classList.toggle('active');
+
+
   }
 
   redirectAddUsser() {
     window.location.href = '/addusser';
   }
+
+  redirectSucursal(id_sucursal){
+    console.log(id_sucursal);
+    window.location.href = '/sucursales?entidad='+id_sucursal;
+  }
+
 
 }
