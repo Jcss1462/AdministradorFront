@@ -24,6 +24,7 @@ import{UssersService} from './services/api';
 import{EntidadesService} from './services/api';
 import{TrabajadorEntidadService} from './services/api';
 import{SucursalService} from './services/api';
+import{ProyectosService} from './services/api';
 
 
 
@@ -51,7 +52,8 @@ import{SucursalService} from './services/api';
     UssersService,
     EntidadesService,
     TrabajadorEntidadService,
-    SucursalService
+    SucursalService,
+    ProyectosService
 
   ],
   bootstrap: [AppComponent]

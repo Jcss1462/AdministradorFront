@@ -5,6 +5,7 @@ import{UssersService} from '../services/ussers/ussers.service';
 import{EntidadesService} from '../services/entidades/entidades.service';
 import{TrabajadorEntidadService} from '../services/trabajador_entidades/trabajador-entidad.service';
 import{SucursalService} from '../services/sucursales/sucursal.service';
+import{ProyectosService} from '../services/proyectos/proyectos.service';
 
 
 //objetos
@@ -17,6 +18,8 @@ import{GetEntidad} from '../services/entidades/getEntidad';
 import{Traent} from '../services/trabajador_entidades/traent';
 import{SucursalInfo} from '../services/sucursales/sucursalInfo';
 import{Newsucursal} from '../services/sucursales/newSucursal';
+import{ProyectosInfo} from '../services/proyectos/proyectsInfo';
+import{NuevoProyecto} from '../services/proyectos/nuevoProyecto';
 
 
 
@@ -29,6 +32,7 @@ export{
     EntidadesService,
     TrabajadorEntidadService,
     SucursalService,
+    ProyectosService,
 
     //objetos
     Data,
@@ -39,6 +43,8 @@ export{
     GetEntidad,
     Traent,
     SucursalInfo,
-    Newsucursal
+    Newsucursal,
+    ProyectosInfo,
+    NuevoProyecto
    
 };

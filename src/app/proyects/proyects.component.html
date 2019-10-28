@@ -1,3 +1,176 @@
-<p>
-  proyects works!
-</p>
+<div id="container">
+
+  <div class="topnav">
+
+    <div id="buscar">
+
+
+      <div id=conjunto>
+
+        <div id="busbar" class="entradas">
+
+          <input type="text" name="user" placeholder="Buscar" [(ngModel)]="busqueda" (keyup)="updateBusqueda($event)">
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="secion">
+
+      <div id="secionbox">
+
+        <div id="icon" (click)="activarOpt()">
+
+          <i class="fas fa-user"></i>
+
+        </div>
+
+      </div>
+
+      <div id="optspace">
+
+        <div id="optbox">
+
+          <div id="añadirUsuario" class="opt" (click)="redirectAddUsser()">
+
+            <div class="logo">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="mesage">
+              Añadir usuario
+            </div>
+
+          </div>
+
+          
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <div class="contenido" (click)="propieties($event)">
+
+    <div id="cabecera">
+      <div class="encabezado" *ngFor="let key of sucursal">
+        <b>{{key.sucursal}}</b>
+      </div>
+      <div class="encabezado" id="direccion" *ngFor="let key of sucursal">
+        {{key.direccion}}
+      </div>
+    </div>
+
+    <div id="tabbox">
+
+      <div id="marc">
+
+        <div id="entidadbox">
+
+          <div id="textbox">
+
+            <div id="text">
+
+              Proyectos
+
+            </div>
+
+
+          </div>
+
+          <div id="optmenu">
+
+            <div id="optbtn" (click)="showAdd($event)">
+
+              <i class="fas fa-plus"></i>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div id="itemcontainer">
+
+          <div class="item" *ngFor="let key of listProyectos; let i = index" id="{{key.id_proyecto}}">
+            
+
+            <div class="elm" id="1" (click)="redirectProyects(key.id_sucursal)">
+
+              <div id="proyecto">
+                {{key.proyecto}}
+              </div>
+
+            </div>
+
+            <div class="elm" id="2" (click)="redirectProyects(key.id_sucursal)">
+
+              <div id="estado">
+                {{key.id_estado}}
+              </div>
+
+            </div>
+
+            <div class="elm" id="3">
+
+              <div id="editar">
+
+                <i class="fas fa-pencil-alt"></i>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!--------------------------------añadir--------------------------------------->
+
+<div id="añadir" style="display: none">
+
+  <div id="cabecera">
+
+    <div id="closebox">
+
+      <i class="fas fa-window-close" (click)="closeadd()"></i>
+
+    </div>
+
+  </div>
+  <div id="contenido">
+
+    <div class="inputbox">
+
+      <input type="text" name="sucursal" placeholder=" Nuevo proyecto" [(ngModel)]="Proyecto">
+    
+    </div>
+
+    <div id="añadirbox">
+
+      <button type="submit" (click)="create()"><b>Crear</b></button>
+
+    </div>
+
+  </div>
+
+</div>

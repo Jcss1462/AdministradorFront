@@ -39,4 +39,10 @@ export class SucursalService {
   addSucursal(sucursal: Newsucursal): Observable<Newsucursal> {
     return this.http.post<Newsucursal>(this.resourceURL, sucursal, httpOptions);
   }
+
+  getNameSucursal(id: Number): Observable<SucursalInfo> {
+
+    return this.http.get<SucursalInfo>(this.resourceURL+"?razon=nombre"+"&id_sucursal="+id);
+
+  }
 }
