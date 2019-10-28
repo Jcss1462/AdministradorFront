@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 
 import { Entidad } from './entidad';
+import { GetEntidad } from './getEntidad';
 ////////////////
 
 const httpOptions = {
@@ -31,6 +32,12 @@ export class EntidadesService {
   addEntidad(entidad: Entidad): Observable<Entidad> {
 
     return this.http.post<Entidad>(this.resourceURL, entidad, httpOptions);
+
+  }
+
+  getName(id: Number): Observable<GetEntidad> {
+
+    return this.http.get<GetEntidad>(this.resourceURL+"?razon=nombre"+"&id_entidad="+id);
 
   }
 

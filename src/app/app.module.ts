@@ -11,6 +11,7 @@ import { RecuperarPasswordComponent } from './recuperar-password/recuperar-passw
 import { EntidadesComponent } from './entidades/entidades.component';
 import { AddUsserComponent } from './add-usser/add-usser.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
+import { ProyectsComponent } from './proyects/proyects.component';
 
 //http
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +23,8 @@ import{RecuperacionService} from './services/api';
 import{UssersService} from './services/api';
 import{EntidadesService} from './services/api';
 import{TrabajadorEntidadService} from './services/api';
+import{SucursalService} from './services/api';
+
 
 
 
@@ -32,7 +35,8 @@ import{TrabajadorEntidadService} from './services/api';
     RecuperarPasswordComponent,
     EntidadesComponent,
     AddUsserComponent,
-    SucursalesComponent
+    SucursalesComponent,
+    ProyectsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import{TrabajadorEntidadService} from './services/api';
     RecuperacionService,
     UssersService,
     EntidadesService,
-    TrabajadorEntidadService
+    TrabajadorEntidadService,
+    SucursalService
 
   ],
   bootstrap: [AppComponent]

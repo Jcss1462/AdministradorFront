@@ -25,9 +25,11 @@ export class EntidadesComponent implements OnInit {
 
   private id_ususario: Number;
 
+  //variables de manipulcacion con servicios
   usserData: Usserdata[];
   listEntidad: Traent[];
   newEntidad: Entidad;
+  //////
 
   busqueda: string;
   nueva: string;
@@ -133,6 +135,7 @@ export class EntidadesComponent implements OnInit {
     if (this.busqueda != undefined) {
 
       if (e.key == "Backspace") {
+
         if (this.countminnus! < 0) {
           this.countminnus++;
         }
@@ -140,11 +143,10 @@ export class EntidadesComponent implements OnInit {
         this.listEntidad = this.tmp[Math.abs(this.countminnus)];
 
       } else {
+
         if (this.busqueda.length != 0) {
           this.countminnus--;
         }
-
-
         this.tmp.push(this.listEntidad);
 
 
@@ -158,10 +160,21 @@ export class EntidadesComponent implements OnInit {
 
         this.tmp = new Array;
         this.tmp.push(this.listEntidad);
+
       }
 
-      console.log(this.countminnus);
-      console.log(this.tmp);
+      if (this.busqueda.length == 0) {
+
+        console.log("cumplido");
+        this.listEntidad=this.tmp[0];
+        this.tmp = new Array;
+        this.tmp.push(this.listEntidad);
+        this.countminnus=0;
+        
+      }
+
+      //console.log(this.countminnus);
+      //console.log(this.tmp);
       //console.log(this.listEntidad);
 
     }
@@ -264,21 +277,17 @@ export class EntidadesComponent implements OnInit {
 
 
   activarOpt(): void {
-
-
     let activador = document.getElementById("optbox");
     activador.classList.toggle('active');
-
-
   }
 
   redirectAddUsser() {
     window.location.href = '/addusser';
   }
 
-  redirectSucursal(id_sucursal){
-    console.log(id_sucursal);
-    window.location.href = '/sucursales?entidad='+id_sucursal;
+  redirectSucursal(id_entidad){
+    console.log(id_entidad);
+    window.location.href = '/sucursales?entidad='+id_entidad;
   }
 
 
