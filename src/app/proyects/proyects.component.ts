@@ -173,8 +173,10 @@ export class ProyectsComponent implements OnInit {
   }
 
 
-
-
+  redirectFase(id_proyecto){
+    console.log(id_proyecto);
+    window.location.href = '/fases?proyect='+id_proyecto;
+  }
   ////////////////////////////////////////////////////// options interface
   activarOpt(): void {
     let activador = document.getElementById("optbox");

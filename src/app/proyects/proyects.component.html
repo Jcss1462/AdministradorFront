@@ -102,7 +102,7 @@
           <div class="item" *ngFor="let key of listProyectos; let i = index" id="{{key.id_proyecto}}">
             
 
-            <div class="elm" id="1" (click)="redirectProyects(key.id_sucursal)">
+            <div class="elm" id="1" (click)="redirectFase(key.id_proyecto)">
 
               <div id="proyecto">
                 {{key.proyecto}}
@@ -110,10 +110,10 @@
 
             </div>
 
-            <div class="elm" id="2" (click)="redirectProyects(key.id_sucursal)">
+            <div class="elm" id="2" (click)="redirectFase(key.id_proyecto)">
 
               <div id="estado">
-                {{key.id_estado}}
+                Estado:&ensp;<b>{{key.estado}}</b>
               </div>
 
             </div>

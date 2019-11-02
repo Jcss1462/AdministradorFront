@@ -8,6 +8,8 @@ import { EntidadesComponent } from './entidades/entidades.component';
 import { AddUsserComponent } from './add-usser/add-usser.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
 import { ProyectsComponent } from './proyects/proyects.component';
+import { FasesComponent } from './fases/fases.component';
+
 
 
 const routes: Routes = [
@@ -17,6 +19,7 @@ const routes: Routes = [
   {path: 'addusser', component: AddUsserComponent },
   {path: 'sucursales', component: SucursalesComponent },
   {path: 'proyects', component: ProyectsComponent},
+  {path: 'fases', component: FasesComponent},
   {path: '',  component: LoginComponent, pathMatch: 'full'},
 ];
 

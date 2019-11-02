@@ -25,6 +25,7 @@ import{EntidadesService} from './services/api';
 import{TrabajadorEntidadService} from './services/api';
 import{SucursalService} from './services/api';
 import{ProyectosService} from './services/api';
+import { FasesComponent } from './fases/fases.component';
 
 
 
@@ -37,7 +38,8 @@ import{ProyectosService} from './services/api';
     EntidadesComponent,
     AddUsserComponent,
     SucursalesComponent,
-    ProyectsComponent
+    ProyectsComponent,
+    FasesComponent
   ],
   imports: [
     BrowserModule,
