@@ -1,0 +1,448 @@
+#container{
+    width: 100vw;
+    height: 99.9vh;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #ECF0F5;
+
+    .topnav{
+
+        width: 100%;
+        height: 70px;
+        display: flex;
+        background: white;
+        border-bottom: 0.1px solid rgb(196, 196, 196);
+
+
+        #buscar{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+
+            #conjunto{
+                width: 40%;
+                height: 80%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                #busbar{
+                    width: 80%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: left;
+                    input{
+                        width: 110%;
+                        height: 50%;
+                        border-radius: 10px;
+                        border: 0.5px solid rgb(201, 201, 201);
+                        text-indent: 10pt; /* para sangrias */
+                        font-size: 15px; 
+                    }
+                }
+            }
+        }
+
+        #secion{
+            width: 50%;
+            height: 100%;
+            display: inline-block;
+        
+
+            #secionbox{
+                width: 100%;
+                height: 70px;
+                display:flex;
+                align-items:center;
+                justify-content: flex-end;
+
+                #icon{
+                    width: 100px;
+                    height: 70px;
+                    display: flex;
+                    align-items:center;
+                    justify-content: center;
+                    font-size: 30px;
+
+                }
+                #icon:hover{
+
+                    transition: 0.1s ease;
+                    cursor: pointer;
+                    background: rgb(184, 184, 184);
+                    color: white;
+    
+                }
+  
+            }
+            
+            #optspace{
+                width: 100%;
+                height: 250px;
+                //background: rgba(0, 0, 255, 0.123);
+                display: flex;
+                justify-content: flex-end;
+               
+
+                #optbox{
+                    width: 280px;
+                    height: 0px;
+                    background: rgb(255, 255, 255);
+                    border: 0.1px solid rgb(196, 196, 196);
+                    border-top: 0px;
+                    font-size: 0px;
+                    z-index: 10;
+
+                    &.active{
+
+                        height: 250px;
+
+                        .opt{
+                            width: 100%;
+                            height: 33.3%;
+                            //border: 0.1px solid rgb(196, 196, 196);
+                            display: flex;
+                            color: rgb(83, 83, 83);
+                            .logo{
+                                width: 30%;
+                                height: 100%;
+                                //background: red;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 21px;
+                            }
+                            .mesage{
+
+                                width: 70%;
+                                height: 100%;
+                                display: flex;
+                                //background: rgb(0, 225, 255);
+                                font-size: 16px;
+                                align-items: center;
+                                
+                            }
+                        }
+                        .opt:hover{
+                            transition: 0.1s ease;
+                            cursor:pointer;
+                            background: rgb(184, 184, 184);
+                            color: white;
+                        }
+                        
+                    }
+                }
+            }
+        }
+
+    }
+    .contenido{
+       
+        width: 100%;
+        height: calc(100% - 70px);;
+        display: inline-block;
+        //border: 0.1px solid rgb(255, 0, 0);
+        //border-bottom: 0.1px solid rgb(196, 196, 196);
+        justify-content: center;
+
+        #cabecera{
+
+            width: 100%;
+            height: 15%;
+            min-height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            .encabezado{
+
+                width: 48.3%;
+                height: 100%;
+                font-size: 40px;
+                display: flex;
+                align-items: center;
+                b{
+                    font-size: 40px;
+                }
+
+               
+            }
+
+            #direccion{
+                display: flex;
+                justify-content: flex-end;
+                font-size: 30px;
+            }
+        }
+
+        #tabbox{
+            width: 100%;
+            height: 84%;
+            display: flex;
+           //background: gray;
+            justify-content: center;
+
+            #marc{
+
+            width: 97%;
+            height: 100%;
+            //background: white;
+            //border: 0.1px solid rgb(0, 0, 0);
+            display: inline-block;
+
+            #entidadbox{
+
+                width: 100%;
+                height: 10%;
+                min-height: 35px;
+                background: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-bottom: 1px solid rgba(160, 160, 160, 0.733);
+
+                #textbox{
+                    width: 50%;
+                    height: 100%;
+                    min-width: 200px;
+                    //background: gray;
+                    display: flex;
+                    justify-content: left;
+                    align-items: center;
+                    #text{
+
+                        width: 50%;
+                        height: 80%;
+                       //background: blue;
+                        display: flex;
+                        align-items: center;
+                        font-size: 30px;
+                        margin-left: 20px;
+                        color: gray;
+
+                    }
+                }
+
+                #optmenu{
+                    width: 50%;
+                    height: 100%;
+                    min-width: 200px;
+                   //background: rgb(255, 0, 0);
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+
+                    #optbtn{
+                        width: 12%;
+                        min-width: 100px;
+                        height: 100%;
+                        //background: blue;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 30px;
+                        color: gray;
+
+                    }#optbtn:hover{
+
+                        transition: 0.1s ease;
+                        cursor: pointer;
+                        background: rgb(184, 184, 184);
+                        color: white;
+                    }
+                }
+
+            }
+
+            #itemcontainer{
+                width: 100%;
+                height: 90%;
+                display: inline-block;
+                overflow-y: auto;
+                overflow-x: hidden;
+            .item{
+                width: 100%;
+                height: 8%;
+                min-height: 33px;
+                background: white;
+
+                border-left: 1px solid rgba(160, 160, 160, 0.733);
+                border-right: 1px solid rgba(160, 160, 160, 0.733);
+                border-bottom: 1px solid rgba(160, 160, 160, 0.733);
+               
+                display: flex;
+
+                .elm{
+                    height: 100%;
+                    width: 25%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 18px;
+
+                    #fase{
+                        width: 50%;
+                        height: 100%;
+                        //background: blue;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        
+                    }
+
+                    #direccion{
+                        width: 50%;
+                        height: 100%;
+                        //background: blue;
+                        display: flex;
+                        align-items: center;
+                        justify-content: left;
+                        
+                    }
+
+                    #editar{
+                        width: 85%;
+                        height: 100%;
+                        //background: blue;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        
+                    }
+
+
+                }
+
+
+
+            }.item:hover{
+
+                transition: 0.1s ease;
+                background: rgb(177, 177, 177);
+                cursor: pointer;
+    
+                #editar{
+                    i:hover{
+                    color: white;
+                    }
+                }
+
+            }
+        }
+
+                
+        }
+
+
+
+        
+        }
+    }
+
+
+  
+
+
+}
+
+#añadir{
+
+    width: 25%;
+    height: 25%;
+    min-width: 400px;
+    min-height: 280px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgba(160, 160, 160, 0.733);
+    position: absolute;
+    top:34%;
+    left:37.5%;
+    display: none;
+
+    #cabecera{
+        width: 100%;
+        height: 15%;
+        background: gray;
+        display: flex;
+        justify-content: flex-end;
+        #closebox{
+
+            width: 60px;
+            height: 100%;
+            //background: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            color: white;
+
+            i:hover{
+                transition: 0.1s ease;
+                cursor: pointer;
+                color: red;
+            }
+
+
+        }
+    }
+
+    #contenido{
+        width: 100%;
+        height: 85%;
+        background:  white;
+        display: inline-block;
+
+        #inputbox{
+            width: 100%;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            input{
+                width: 80%;
+                height: 25%;
+                border-radius: 5px;
+                border: 1px solid rgba(160, 160, 160, 0.733);
+
+            }
+        }
+
+        #añadirbox{
+
+            width: 100%;
+            height: 40%;
+            //background:  blue;
+            display: flex;
+            justify-content: center;
+
+            button{
+                width: 25%;
+                height: 30px;
+                border-radius: 5px;
+                border: 1px solid rgba(160, 160, 160, 0.733);
+                background: white;
+                color: black;
+            }button:hover{
+
+                transition: 0.1s ease;
+                cursor: pointer;
+                background: gray;
+                color: rgb(255, 255, 255);
+
+            }
+
+
+        }
+
+       
+
+       
+    }
+}
+

@@ -6,6 +6,7 @@ import{EntidadesService} from '../services/entidades/entidades.service';
 import{TrabajadorEntidadService} from '../services/trabajador_entidades/trabajador-entidad.service';
 import{SucursalService} from '../services/sucursales/sucursal.service';
 import{ProyectosService} from '../services/proyectos/proyectos.service';
+import{FasesService} from '../services/fases/fases.service';
 
 
 //objetos
@@ -20,6 +21,8 @@ import{SucursalInfo} from '../services/sucursales/sucursalInfo';
 import{Newsucursal} from '../services/sucursales/newSucursal';
 import{ProyectosInfo} from '../services/proyectos/proyectsInfo';
 import{NuevoProyecto} from '../services/proyectos/nuevoProyecto';
+import{Fasesinfo} from '../services/fases/fasesInfo';
+import{NewFase} from '../services/fases/newFase';
 
 
 
@@ -33,6 +36,7 @@ export{
     TrabajadorEntidadService,
     SucursalService,
     ProyectosService,
+    FasesService,
 
     //objetos
     Data,
@@ -45,6 +49,8 @@ export{
     SucursalInfo,
     Newsucursal,
     ProyectosInfo,
-    NuevoProyecto
+    NuevoProyecto,
+    Fasesinfo,
+    NewFase
    
 };

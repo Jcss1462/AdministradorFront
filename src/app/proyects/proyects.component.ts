@@ -175,7 +175,7 @@ export class ProyectsComponent implements OnInit {
 
   redirectFase(id_proyecto){
     console.log(id_proyecto);
-    window.location.href = '/fases?proyect='+id_proyecto;
+    window.location.href = '/fases?proyect='+id_proyecto+"&dir="+this.sucursal[0].direccion;
   }
   ////////////////////////////////////////////////////// options interface
   activarOpt(): void {

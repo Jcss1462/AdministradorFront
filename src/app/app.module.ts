@@ -12,6 +12,7 @@ import { EntidadesComponent } from './entidades/entidades.component';
 import { AddUsserComponent } from './add-usser/add-usser.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
 import { ProyectsComponent } from './proyects/proyects.component';
+import { FasesComponent } from './fases/fases.component';
 
 //http
 import { HttpClientModule } from '@angular/common/http';
@@ -25,7 +26,8 @@ import{EntidadesService} from './services/api';
 import{TrabajadorEntidadService} from './services/api';
 import{SucursalService} from './services/api';
 import{ProyectosService} from './services/api';
-import { FasesComponent } from './fases/fases.component';
+import{FasesService} from './services/api';
+
 
 
 
@@ -55,7 +57,8 @@ import { FasesComponent } from './fases/fases.component';
     EntidadesService,
     TrabajadorEntidadService,
     SucursalService,
-    ProyectosService
+    ProyectosService,
+    FasesService
 
   ],
   bootstrap: [AppComponent]
