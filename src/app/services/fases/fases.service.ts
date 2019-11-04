@@ -39,7 +39,7 @@ export class FasesService {
     return this.http.post<NewFase>(this.resourceURL, fase, httpOptions);
   }
 
-  getNameSucursal(id: Number): Observable<Fasesinfo> {
+  getNameFase(id: Number): Observable<Fasesinfo> {
 
     return this.http.get<Fasesinfo>(this.resourceURL+"?razon=nombre"+"&id_fases="+id);
 

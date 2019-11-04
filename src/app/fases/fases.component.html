@@ -100,10 +100,10 @@
 
         <div id="itemcontainer">
 
-          <div class="item" *ngFor="let key of listFases; let i = index" id="{{key.id_sucursal}}">
+          <div class="item" *ngFor="let key of listFases; let i = index" id="{{key.id_fases}}">
 
 
-            <div class="elm" id="1" (click)="redirectProyects(key.id_sucursal)">
+            <div class="elm" id="1" (click)="redirectPresupuesto(key.id_fases)">
 
               <div id="fase">
                 {{key.fase}}
@@ -111,7 +111,7 @@
 
             </div>
 
-            <div class="elm" id="2" (click)="redirectProyects(key.id_sucursal)">
+            <div class="elm" id="2" (click)="redirectPresupuesto(key.id_fases)">
 
               <div id="fecha_inicio">
                 Fecha incicio:&ensp;<b>{{key.fecha_inicio}}</b>
@@ -119,7 +119,7 @@
 
             </div>
 
-            <div class="elm" id="4" (click)="redirectProyects(key.id_sucursal)">
+            <div class="elm" id="4" (click)="redirectPresupuesto(key.id_fases)">
 
               <div id="fecha_final" *ngIf="key.fecha_finalizacion==null">
                 Fecha final:&ensp;<b>-</b>
@@ -131,7 +131,7 @@
 
             </div>
 
-            <div class="elm" id="5" (click)="redirectProyects(key.id_sucursal)">
+            <div class="elm" id="5" (click)="redirectPresupuesto(key.id_fases)">
 
               <div id="estado">
                 Estado:&ensp;<b>{{key.estadofase}}</b>

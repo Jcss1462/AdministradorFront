@@ -181,9 +181,8 @@ export class FasesComponent implements OnInit {
     }
   }
 
-  redirectProyects(id_sucursal){
-    console.log(id_sucursal);
-    window.location.href = '/proyects?sucursal='+id_sucursal;
+  redirectPresupuesto(id_fase){
+    window.location.href = '/presupuesto?id_fase='+id_fase+"&dir="+this.direccion;
   }
 
 

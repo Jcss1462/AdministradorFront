@@ -1,0 +1,94 @@
+<div id="container">
+
+  <div class="topnav">
+
+    <div id="buscar">
+
+    </div>
+
+    <div id="secion">
+
+      <div id="secionbox">
+
+        <div id="icon" (click)="activarOpt()">
+
+          <i class="fas fa-user"></i>
+
+        </div>
+
+      </div>
+
+      <div id="optspace">
+
+        <div id="optbox">
+
+          <div id="añadirUsuario" class="opt" (click)="redirectAddUsser()">
+
+            <div class="logo">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <div class="mesage">
+              Añadir usuario
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <div class="contenido" (click)="propieties($event)">
+
+    <div id="margen">
+
+      <div id="selectbox">
+
+        <div class="item" id="Ingresos" (click)="changeSlect(1)">
+          <div id="selctColor">
+
+          </div>
+          <div id="texto">
+            Ingresos
+          </div>
+        </div>
+
+        <div class="item" id="Gastos" (click)="changeSlect(2)">
+          <div id="selctColor">
+
+          </div>
+          <div id="texto">
+            Gastos
+          </div>
+        </div>
+
+      </div>
+
+      <div id="data">
+
+        <div id="space">
+
+            <app-ingresos></app-ingresos>
+
+        </div>
+
+        <div id="Totales">
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

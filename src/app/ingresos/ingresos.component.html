@@ -1,0 +1,138 @@
+<div id="container">
+
+  <div id="margen">
+
+    <div id="cabecera">
+      <div class="encabezado" *ngFor="let key of fase">
+        <b>{{key.fase}}</b>
+      </div>
+      <div class="encabezado" id="direccion">
+        {{direccion}}
+      </div>
+    </div>
+
+    <div id="tabbox">
+
+      <div id="entidadbox">
+
+
+        <div id="textbox">
+
+          <div id="text">
+
+            Presupuestos y ejecución de ingresos
+
+          </div>
+
+
+        </div>
+
+        <div id="optmenu">
+
+          <div id="optbtn" (click)="showAdd($event)">
+
+            <i class="fas fa-plus"></i>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+      <div id="tabla">
+        <table>
+
+          <thead>
+            <tr>
+              <th>Entidad</th>
+              <th>Presupuesto</th>
+              <th>Fecha presupuesto</th>
+              <th>Estado</th>
+              <th>Tipo ingreso</th>
+              <th>Ingreso</th>
+              <th>Fecha de ingreso</th>
+              <th>Interes</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let key of listingreso">
+              <td>{{key.entidad}}</td>
+              <td>{{key.presupuesto}}</td>
+              <td>{{key.fecha_presupuesto_ingreso}}</td>
+              <td>{{key.estadoingreso}}</td>
+              <td>{{key.tipoingreso}}</td>
+              <td>{{key.ingreso}}</td>
+              <td>{{key.fecha_ingreso}}</td>
+              <td *ngIf="key.interes!=null">{{key.interes}}%</td>
+              <td *ngIf="key.interes==null"></td>
+              <td class="especial"><i class="fas fa-pencil-alt"></i></td>
+              <td class="especial"><i class="fas fa-trash-alt"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!--------------------------------añadir--------------------------------------->
+
+<div id="añadir" style="display: none">
+
+  <div id="cabecera">
+
+    <div id="closebox">
+
+      <i class="fas fa-window-close" (click)="closeadd()"></i>
+
+    </div>
+
+  </div>
+  <div id="contenido">
+
+    <div id="formulario">
+
+
+      <div id="newentidad">
+
+        <input id="entidad" type="text" name="user" placeholder=" Nueva entidad" [(ngModel)]="nuevaEntidad">
+
+      </div>
+      <div id="subdata">
+
+        <input class="dupla" id="Presupuesto" type="text" name="user" placeholder="Presupuesto (pesos)" [(ngModel)]="presupuesto">
+        <label for="start">Fecha presupuesto:&ensp;</label>
+        <input class="dupla" id="Fecha_presupuesto" type="date" name="user" placeholder="Fecha presupuesto" (change)="updateFechaPresupuesto($event)">
+
+      </div>
+      <div id="selector">
+
+          <select (change)="updateTipo($event)" id="tipo" required>
+              <option selected disabled hidden>Tipo:</option>
+              <option value="1">Interno</option>
+              <option value="2">Prestamo</option>
+              <option value="3">Inversión</option>
+            </select>
+
+      </div>
+    
+    </div>
+
+    <div id="añadirbox">
+
+      <button type="submit" (click)="create()"><b>Crear</b></button>
+
+    </div>
+
+  </div>
+
+</div>

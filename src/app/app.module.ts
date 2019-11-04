@@ -13,6 +13,8 @@ import { AddUsserComponent } from './add-usser/add-usser.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
 import { ProyectsComponent } from './proyects/proyects.component';
 import { FasesComponent } from './fases/fases.component';
+import { PresupuestosComponent } from './presupuestos/presupuestos.component';
+import { IngresosComponent } from './ingresos/ingresos.component';
 
 //http
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +29,8 @@ import{TrabajadorEntidadService} from './services/api';
 import{SucursalService} from './services/api';
 import{ProyectosService} from './services/api';
 import{FasesService} from './services/api';
+import{IngresosService} from './services/api';
+
 
 
 
@@ -41,7 +45,9 @@ import{FasesService} from './services/api';
     AddUsserComponent,
     SucursalesComponent,
     ProyectsComponent,
-    FasesComponent
+    FasesComponent,
+    PresupuestosComponent,
+    IngresosComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,8 @@ import{FasesService} from './services/api';
     TrabajadorEntidadService,
     SucursalService,
     ProyectosService,
-    FasesService
+    FasesService,
+    IngresosService
 
   ],
   bootstrap: [AppComponent]

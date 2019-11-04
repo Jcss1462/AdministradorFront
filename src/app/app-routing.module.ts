@@ -9,6 +9,7 @@ import { AddUsserComponent } from './add-usser/add-usser.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
 import { ProyectsComponent } from './proyects/proyects.component';
 import { FasesComponent } from './fases/fases.component';
+import { PresupuestosComponent } from './presupuestos/presupuestos.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'sucursales', component: SucursalesComponent },
   {path: 'proyects', component: ProyectsComponent},
   {path: 'fases', component: FasesComponent},
+  {path: 'presupuesto', component: PresupuestosComponent},
   {path: '',  component: LoginComponent, pathMatch: 'full'},
 ];
 

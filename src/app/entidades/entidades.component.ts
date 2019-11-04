@@ -64,7 +64,6 @@ export class EntidadesComponent implements OnInit {
       );
 
     //traer entidades
-
     this._traEntidad.getEntidades(this.id_ususario)
       .subscribe((data) => {
         this.listEntidad = data;
