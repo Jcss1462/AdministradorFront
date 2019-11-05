@@ -155,6 +155,15 @@
                             .especial{
                                 width: 40px;
                             }
+                            .ingreso{
+                                width:40px;
+                                color: #ED8500;
+                                i:hover{
+                                    cursor: pointer;
+                                    color: white;
+                                }
+                               
+                            }
                         }tr:hover{
 
                             transition: 0.1s ease;
@@ -335,3 +344,135 @@
     }
 }
 
+
+#editar{
+
+    width: 500px;
+    height: 320px;
+    min-width: 420px;
+    min-height: 320px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid rgba(160, 160, 160, 0.733);
+    position: absolute;
+    top:27%;
+    left:39.5%;
+    display: none;
+
+    #cabecera{
+        width: 100%;
+        height: 10%;
+        background: gray;
+        display: flex;
+        justify-content: flex-end;
+        #closebox{
+
+            width: 60px;
+            height: 100%;
+            //background: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            color: white;
+
+            i:hover{
+                transition: 0.1s ease;
+                cursor: pointer;
+                color: red;
+            }
+
+
+        }
+    }
+
+    #contenido{
+        width: 100%;
+        height: 90%;
+        background:  white;
+        display: inline-block;
+
+        #formulario{
+            width: 100%;
+            height: 80%;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+
+            input{
+                border-radius: 5px;
+                border: 1px solid rgba(160, 160, 160, 0.733);
+            }
+
+            #newenIngreso{
+                width: 100%;
+                height: 40%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                #ingreso{
+                    width: 90%;
+                    height: 35px;
+                }
+            }
+
+            #subdata{
+
+                width: 100%;
+                height: 12%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            
+                .dupla{
+                    width: 40%;
+                    height: 35px;
+                }
+                #interes{
+                    width: 25%;
+                    margin-right: 65px;
+                }
+                #Fecha_Ingreso{
+                    width: 24%;
+                    color: gray;
+                    font-size:12px;
+                }                
+            }
+
+          
+
+           
+        }
+
+        #añadirbox{
+
+            width: 100%;
+            height: 20%;
+            //background:  blue;
+            display: flex;
+            justify-content: center;
+
+            button{
+                width: 25%;
+                height: 30px;
+                border-radius: 5px;
+                border: 1px solid rgba(160, 160, 160, 0.733);
+                background: white;
+                color: black;
+            }button:hover{
+
+                transition: 0.1s ease;
+                cursor: pointer;
+                background: gray;
+                color: rgb(255, 255, 255);
+
+            }
+
+
+        }
+
+       
+
+       
+    }
+}

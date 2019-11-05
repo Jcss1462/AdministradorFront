@@ -67,10 +67,20 @@
               <td>{{key.tipoingreso}}</td>
               <td>{{key.ingreso}}</td>
               <td>{{key.fecha_ingreso}}</td>
+
               <td *ngIf="key.interes!=null">{{key.interes}}%</td>
               <td *ngIf="key.interes==null"></td>
-              <td class="especial"><i class="fas fa-pencil-alt"></i></td>
-              <td class="especial"><i class="fas fa-trash-alt"></i></td>
+
+              <td class="ingreso" *ngIf="key.ingreso==null">
+                <i class="fas fa-check" (click)="openIngreso(key.id_ingreso)"></i>
+              </td>
+              <td class="ingreso" *ngIf="key.interes!=null">
+              </td>
+
+
+              <td class="especial">
+                <i class="fas fa-trash-alt" (click)="deleteIngreso(key.id_ingreso)"></i>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -136,3 +146,46 @@
   </div>
 
 </div>
+
+<!--------------------------------Editar--------------------------------------->
+<div id="editar" style="display: none">
+
+  <div id="cabecera">
+
+    <div id="closebox">
+
+      <i class="fas fa-window-close" (click)="closeEdit()"></i>
+
+    </div>
+
+  </div>
+  <div id="contenido">
+
+    <div id="formulario">
+
+
+      <div id="newenIngreso">
+
+        <input id="ingreso"  type="text" name="user" placeholder="Ingreso(pesos)" [(ngModel)]="ingreso">
+
+      </div>
+      <div id="subdata">
+
+        <input class="dupla" id="interes" type="text" name="user" placeholder="Interes(porcentaje)" [(ngModel)]="interes">
+        <label for="start">Fecha de ingreso:&ensp;</label>
+        <input class="dupla" id="Fecha_Ingreso" type="date" name="user" placeholder="Fecha de ingreso" (change)="updateFechaIngreso($event)">
+
+      </div>
+  
+    </div>
+
+    <div id="añadirbox">
+
+      <button type="submit" (click)="ingreasar()"><b>Ingresar</b></button>
+
+    </div>
+
+  </div>
+
+</div>
+

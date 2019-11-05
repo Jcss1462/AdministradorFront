@@ -26,6 +26,7 @@ import{Fasesinfo} from '../services/fases/fasesInfo';
 import{NewFase} from '../services/fases/newFase';
 import{IngresosInfo} from '../services/ingresos/ingresosInfo';
 import{NewIngreso} from '../services/ingresos/newingreso';
+import{ConfirmIngreso} from '../services/ingresos/confirmIngreso';
 
 
 
@@ -56,5 +57,6 @@ export{
     Fasesinfo,
     NewFase,
     IngresosInfo,
-    NewIngreso   
+    NewIngreso,
+    ConfirmIngreso   
 };
