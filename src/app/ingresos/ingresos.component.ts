@@ -182,16 +182,19 @@ export class IngresosComponent implements OnInit {
 
   deleteIngreso(id) {
 
-    this._ingreso
-      .deleteIngreso(id)
-      .subscribe((data) => {
+    this._ingreso.deleteIngreso(id).subscribe((data) => {
 
-        
-      
+      if(data==null){
+        alert("Ingreso eliminado");
         this.ngOnInit();
-      });
+      }
 
-   
+    }, (error) => {
+      console.log(error.message);
+      alert("Error en la eliminacion");
+    }
+    );
+
 
   }
 

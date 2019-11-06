@@ -45,7 +45,7 @@ export class IngresosService {
     return this.http.put<ConfirmIngreso>(this.resourceURL, check, httpOptions)
   }
 
-  deleteIngreso (id: number): Observable<{}> {
+  deleteIngreso (id: number): Observable<any> {
     return this.http.delete(this.resourceURL+"?id_ingreso="+id, httpOptions)
   }
 
