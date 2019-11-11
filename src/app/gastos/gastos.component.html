@@ -20,7 +20,7 @@
 
           <div id="text">
 
-            Presupuestos y ejecución de ingresos
+            Presupuestos y ejecución de gastos
 
           </div>
 
@@ -61,18 +61,18 @@
           <tbody>
             <tr *ngFor="let key of listingreso">
               <td>{{key.entidad}}</td>
-              <td>{{key.presupuesto|pesosTransform}}</td>
+              <td>{{key.presupuesto}}</td>
               <td>{{key.fecha_presupuesto_ingreso}}</td>
               <td>{{key.estadoingreso}}</td>
               <td>{{key.tipoingreso}}</td>
-              <td>{{key.ingreso|pesosTransform}}</td>
+              <td>{{key.ingreso}}</td>
               <td>{{key.fecha_ingreso}}</td>
 
               <td *ngIf="key.interes!=null">{{key.interes}}%</td>
               <td *ngIf="key.interes==null"></td>
 
               <td class="ingreso" *ngIf="key.ingreso==null">
-                <i class="fas fa-check" (click)="openIngreso(key.id_ingreso,key.tipoingreso)"></i>
+                <i class="fas fa-check" (click)="openIngreso(key.id_ingreso)"></i>
               </td>
               <td class="ingreso" *ngIf="key.interes!=null">
               </td>
@@ -119,24 +119,22 @@
       </div>
       <div id="subdata">
 
-        $&ensp;<input class="dupla" id="Presupuesto" type="text" name="user" placeholder="Presupuesto"
-          [(ngModel)]="presupuesto" (keyup)="simulacionPesos($event)">
+        <input class="dupla" id="Presupuesto" type="text" name="user" placeholder="Presupuesto (pesos)" [(ngModel)]="presupuesto">
         <label for="start">Fecha presupuesto:&ensp;</label>
-        <input class="dupla" id="Fecha_presupuesto" type="date" name="user" placeholder="Fecha presupuesto"
-          (change)="updateFechaPresupuesto($event)">
+        <input class="dupla" id="Fecha_presupuesto" type="date" name="user" placeholder="Fecha presupuesto" (change)="updateFechaPresupuesto($event)">
 
       </div>
       <div id="selector">
 
-        <select (change)="updateTipo($event)" id="tipo" required>
-          <option selected disabled hidden>Tipo:</option>
-          <option value="1">Interno</option>
-          <option value="2">Prestamo</option>
-          <option value="3">Inversión</option>
-        </select>
+          <select (change)="updateTipo($event)" id="tipo" required>
+              <option selected disabled hidden>Tipo:</option>
+              <option value="1">Interno</option>
+              <option value="2">Prestamo</option>
+              <option value="3">Inversión</option>
+            </select>
 
       </div>
-
+    
     </div>
 
     <div id="añadirbox">
@@ -168,24 +166,17 @@
 
       <div id="newenIngreso">
 
-        $&ensp;<input id="ingreso" type="text" name="user" placeholder="Ingreso" [(ngModel)]="ingreso"
-          (keyup)="simulacionPesos($event)" pattern="^[\d,]+$">
+        <input id="ingreso"  type="text" name="user" placeholder="Ingreso(pesos)" [(ngModel)]="ingreso">
 
       </div>
       <div id="subdata">
-        <input class="dupla" id="interes" type="text" name="user" placeholder="Interes(%)" [(ngModel)]="interes"
-          *ngIf="tipo_seleccionado!='Interno'" (keyup)="verificar($event)">
+
+        <input class="dupla" id="interes" type="text" name="user" placeholder="Interes(porcentaje)" [(ngModel)]="interes">
         <label for="start">Fecha de ingreso:&ensp;</label>
-        <input class="dupla" id="Fecha_Ingreso" type="date" name="user" placeholder="Fecha de ingreso"
-          (change)="updateFechaIngreso($event)">
+        <input class="dupla" id="Fecha_Ingreso" type="date" name="user" placeholder="Fecha de ingreso" (change)="updateFechaIngreso($event)">
+
       </div>
-      <div id="pfinal">
-        <input  id="cuota" type="text" name="user" placeholder="#Cuotas" [(ngModel)]="cuotas"
-          *ngIf="tipo_seleccionado!='Interno'" (keyup)="verificar($event)">
-      </div>
-
-
-
+  
     </div>
 
     <div id="añadirbox">

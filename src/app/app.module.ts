@@ -30,6 +30,10 @@ import{SucursalService} from './services/api';
 import{ProyectosService} from './services/api';
 import{FasesService} from './services/api';
 import{IngresosService} from './services/api';
+import { GastosComponent } from './gastos/gastos.component';
+
+//pipes
+import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
 
 
 
@@ -47,7 +51,9 @@ import{IngresosService} from './services/api';
     ProyectsComponent,
     FasesComponent,
     PresupuestosComponent,
-    IngresosComponent
+    IngresosComponent,
+    GastosComponent,
+    PesosTransformPipe
   ],
   imports: [
     BrowserModule,

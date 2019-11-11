@@ -75,7 +75,8 @@
 
         <div id="space">
 
-            <app-ingresos></app-ingresos>
+            <app-ingresos *ngIf="seleccion==1"></app-ingresos>
+            <app-gastos *ngIf="seleccion==2"></app-gastos>
 
         </div>
 

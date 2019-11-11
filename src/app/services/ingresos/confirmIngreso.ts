@@ -4,4 +4,5 @@ export class ConfirmIngreso {
     ingreso: Number;
     interes: Number;
     fecha_ingreso: String;
+    cuotas: Number;
 }

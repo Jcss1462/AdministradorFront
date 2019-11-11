@@ -13,6 +13,9 @@ import { IngresosService } from '../services/api';
 
 //importo para obtener el parametro en la url
 import { Router } from '@angular/router';
+import { NumberSymbol } from '@angular/common';
+import { asElementData } from '@angular/core/src/view';
+
 
 @Component({
   selector: 'app-ingresos',
@@ -35,15 +38,22 @@ export class IngresosComponent implements OnInit {
   nuevoIngreso: NewIngreso;
   tipo: any;
   nuevaEntidad: String;
-  presupuesto: Number;
+  presupuesto: String;
   fecha_presupuesto: String;
 
   //variables de modificacion
   check: ConfirmIngreso;
   id_alterIngreso: Number;
-  ingreso: Number;
-  fecha_ingreso: string;
+  ingreso: String;
+  fecha_ingreso: String;
   interes: Number;
+  cuotas: Number;
+
+  tipo_seleccionado: String;
+
+  //variables de numeracion
+
+
 
   constructor(private router: Router, private _fases: FasesService, private _ingreso: IngresosService) {
     this.id_fase = this.router.parseUrl(this.router.url).queryParams.id_fase;
@@ -108,7 +118,7 @@ export class IngresosComponent implements OnInit {
 
       this.nuevoIngreso.entidad = this.nuevaEntidad;
       this.nuevoIngreso.fecha_presupuesto = this.fecha_presupuesto;
-      this.nuevoIngreso.presupuesto = this.presupuesto;
+      this.nuevoIngreso.presupuesto = Number(this.presupuesto.replace(/,/g, ''));;
       this.nuevoIngreso.id_estadoingreso = 1;
       this.nuevoIngreso.id_tipoingreso = this.tipo;
       this.nuevoIngreso.id_fase = this.id_fase;
@@ -144,16 +154,29 @@ export class IngresosComponent implements OnInit {
     console.log("ingreso: " + this.ingreso);
 
     if (((this.ingreso != null) || (this.ingreso != undefined))
-      && ((this.fecha_ingreso != null) || (this.fecha_ingreso != undefined))
-      && ((this.interes != null) || (this.interes != undefined))) {
-
+      && ((this.fecha_ingreso != null) || (this.fecha_ingreso != undefined))) {
 
       this.check = new ConfirmIngreso;
       this.check.id_ingreso = this.id_alterIngreso;
-      this.check.ingreso = this.ingreso;
+      this.check.ingreso = Number(this.ingreso.replace(/,/g, ''));
       this.check.id_estadoingreso = 2;
-      this.check.interes = this.interes;
       this.check.fecha_ingreso = this.fecha_ingreso;
+
+      if (this.interes == undefined || this.interes == 0) {
+        this.check.interes = null;
+      }else{
+        this.check.interes = this.interes;
+      }
+
+      if (this.cuotas == undefined || this.cuotas == 0) {
+        this.check.cuotas = null;
+      }else{
+        this.check.cuotas = this.cuotas;
+      }
+
+
+
+      console.log(this.check);
 
       this._ingreso
         .updateIngreso(this.check)
@@ -184,7 +207,7 @@ export class IngresosComponent implements OnInit {
 
     this._ingreso.deleteIngreso(id).subscribe((data) => {
 
-      if(data==null){
+      if (data == null) {
         alert("Ingreso eliminado");
         this.ngOnInit();
       }
@@ -199,9 +222,14 @@ export class IngresosComponent implements OnInit {
   }
 
 
-  openIngreso(id_aI) {
+  openIngreso(id_aI, tipo_aI) {
 
+    //uso estos daston en ingreasar()
     this.id_alterIngreso = id_aI;
+    //uso este dato para alterar el formulario
+    this.tipo_seleccionado = tipo_aI;
+
+    console.log(this.tipo_seleccionado);
 
     let a = document.getElementById('editar');
     if (a.style.display == "none") {
@@ -231,6 +259,25 @@ export class IngresosComponent implements OnInit {
   closeadd() {
     let a = document.getElementById('añadir');
     a.setAttribute("style", "display: none");
+  }
+
+  simulacionPesos(e) {
+    console.log(e.key)
+    if ((e.key >= 0 && e.key <= 9) || (e.key == "Backspace")||(e.key=="ArrowRight")||(e.key=="ArrowLeft")) {
+      e.target.value = (parseInt(e.target.value.replace(/[^\d]+/gi, '')) || 0).toLocaleString('en-US')
+    } else {
+      alert("solo valores numericos en este campo");
+    }
+  }
+
+  verificar(e) {
+    if ((e.key >= 0 && e.key <= 9) || (e.key == "Backspace")||(e.key=="ArrowRight")||(e.key=="ArrowLeft")) {
+
+
+    } else {
+      alert("solo valores numericos");
+    }
+
   }
 
 
