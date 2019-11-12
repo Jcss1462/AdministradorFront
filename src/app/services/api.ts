@@ -8,6 +8,7 @@ import{SucursalService} from '../services/sucursales/sucursal.service';
 import{ProyectosService} from '../services/proyectos/proyectos.service';
 import{FasesService} from '../services/fases/fases.service';
 import{IngresosService} from '../services/ingresos/ingresos.service';
+import{GastosService} from '../services/gastos/gastos.service';
 
 
 //objetos
@@ -27,7 +28,8 @@ import{NewFase} from '../services/fases/newFase';
 import{IngresosInfo} from '../services/ingresos/ingresosInfo';
 import{NewIngreso} from '../services/ingresos/newingreso';
 import{ConfirmIngreso} from '../services/ingresos/confirmIngreso';
-
+import{GastosInfo} from '../services/gastos/gastosInfo';
+import{NewGasto} from '../services/gastos/newgasto';
 
 
 export{
@@ -41,6 +43,7 @@ export{
     ProyectosService,
     FasesService,
     IngresosService,
+    GastosService,
 
     //objetos
     Data,
@@ -58,5 +61,7 @@ export{
     NewFase,
     IngresosInfo,
     NewIngreso,
-    ConfirmIngreso   
+    ConfirmIngreso,
+    GastosInfo,
+    NewGasto   
 };

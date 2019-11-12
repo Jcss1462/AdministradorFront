@@ -46,37 +46,41 @@
 
           <thead>
             <tr>
+              <th></th>
               <th>Entidad</th>
               <th>Presupuesto</th>
-              <th>Fecha presupuesto</th>
+              <th>Fecha presupuesto de pago</th>
               <th>Estado</th>
-              <th>Tipo ingreso</th>
-              <th>Ingreso</th>
-              <th>Fecha de ingreso</th>
-              <th>Interes</th>
+              <th>Fecha de pago</th>
+              <th>Corte</th>
+              <th>Pago</th>
               <th></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let key of listingreso">
+            <tr *ngFor="let key of listGasto">
+
+              <td class="detalle" *ngIf="key.tipocorte=='Mensual'">
+                <i class="fas fa-clipboard-list"></i>
+              </td>
+              <td class="detalle" *ngIf="key.tipocorte!='Mensual'">
+              </td>
               <td>{{key.entidad}}</td>
-              <td>{{key.presupuesto}}</td>
-              <td>{{key.fecha_presupuesto_ingreso}}</td>
-              <td>{{key.estadoingreso}}</td>
-              <td>{{key.tipoingreso}}</td>
-              <td>{{key.ingreso}}</td>
-              <td>{{key.fecha_ingreso}}</td>
+              <td>{{key.presupuesto_gasto|pesosTransform}}</td>
+              <td>{{key.fecha_presupuesto_gasto}}</td>
+              <td>{{key.estadogasto}}</td>
+              <td>{{key.fecha_pago}}</td>
+              <td>{{key.tipocorte}}</td>
+              <td>{{key.pago|pesosTransform}}</td>
+              
+  
 
-              <td *ngIf="key.interes!=null">{{key.interes}}%</td>
-              <td *ngIf="key.interes==null"></td>
-
-              <td class="ingreso" *ngIf="key.ingreso==null">
-                <i class="fas fa-check" (click)="openIngreso(key.id_ingreso)"></i>
+              <td class="ingreso" *ngIf="key.pago==null&&key.tipocorte=='Puntual'">
+                <i class="fas fa-check" (click)="openIngreso(key.id_ingreso,key.tipoingreso)"></i>
               </td>
-              <td class="ingreso" *ngIf="key.interes!=null">
+              <td class="ingreso" *ngIf="!key.pago&&key.tipocorte!='Puntual'">
               </td>
-
 
               <td class="especial">
                 <i class="fas fa-trash-alt" (click)="deleteIngreso(key.id_ingreso)"></i>
@@ -119,22 +123,19 @@
       </div>
       <div id="subdata">
 
-        <input class="dupla" id="Presupuesto" type="text" name="user" placeholder="Presupuesto (pesos)" [(ngModel)]="presupuesto">
+        $&ensp;<input class="dupla" id="Presupuesto" type="text" name="user" placeholder="Presupuesto de gasto"
+          [(ngModel)]="presupuesto" (keyup)="simulacionPesos($event)">
         <label for="start">Fecha presupuesto:&ensp;</label>
-        <input class="dupla" id="Fecha_presupuesto" type="date" name="user" placeholder="Fecha presupuesto" (change)="updateFechaPresupuesto($event)">
+        <input class="dupla" id="Fecha_presupuesto" type="date" name="user" placeholder="Fecha presupuesto"
+          (change)="updateFechaPresupuesto($event)">
 
       </div>
       <div id="selector">
 
-          <select (change)="updateTipo($event)" id="tipo" required>
-              <option selected disabled hidden>Tipo:</option>
-              <option value="1">Interno</option>
-              <option value="2">Prestamo</option>
-              <option value="3">Inversión</option>
-            </select>
+        <input id="cuotas" type="text" name="user" placeholder="#Cuotas" [(ngModel)]="cuotas">
 
       </div>
-    
+
     </div>
 
     <div id="añadirbox">
@@ -166,17 +167,24 @@
 
       <div id="newenIngreso">
 
-        <input id="ingreso"  type="text" name="user" placeholder="Ingreso(pesos)" [(ngModel)]="ingreso">
+        $&ensp;<input id="ingreso" type="text" name="user" placeholder="Ingreso" [(ngModel)]="ingreso"
+          (keyup)="simulacionPesos($event)" pattern="^[\d,]+$">
 
       </div>
       <div id="subdata">
-
-        <input class="dupla" id="interes" type="text" name="user" placeholder="Interes(porcentaje)" [(ngModel)]="interes">
+        <input class="dupla" id="interes" type="text" name="user" placeholder="Interes(%)" [(ngModel)]="interes"
+          *ngIf="tipo_seleccionado!='Interno'" (keyup)="verificar($event)">
         <label for="start">Fecha de ingreso:&ensp;</label>
-        <input class="dupla" id="Fecha_Ingreso" type="date" name="user" placeholder="Fecha de ingreso" (change)="updateFechaIngreso($event)">
-
+        <input class="dupla" id="Fecha_Ingreso" type="date" name="user" placeholder="Fecha de ingreso"
+          (change)="updateFechaIngreso($event)">
       </div>
-  
+      <div id="pfinal">
+        <input id="cuota" type="text" name="user" placeholder="#Cuotas" [(ngModel)]="cuotas"
+          *ngIf="tipo_seleccionado!='Interno'" (keyup)="verificar($event)">
+      </div>
+
+
+
     </div>
 
     <div id="añadirbox">

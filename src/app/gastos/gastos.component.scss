@@ -164,6 +164,14 @@
                                 }
                                
                             }
+                            .detalle{
+                                width:50px;
+                                color: rgb(153, 153, 153);
+                                i:hover{
+                                    cursor: pointer;
+                                    color: black;
+                                }
+                            }
                         }tr:hover{
 
                             transition: 0.1s ease;
@@ -291,18 +299,17 @@
                 width: 100%;
                 height: 33.3%;
                 display: flex;
-                justify-content: center;
+                justify-content: left;
                 align-items: center;
 
-                select{
-                    margin-top: 5px;
-                    width: 40%;
-                    height: 30%;
-                    background: gray;
-                    font-size: 17px; 
-                    border-color: #fff transparent transparent transparent;
-                    color: white;
+                #cuotas{
                     
+                    width: 10%;
+                    height: 35%;
+                    color: gray;
+                    font-size:12px;
+                    margin-left:54px;
+                    margin-top:15px;
                 
                 }
 
@@ -419,7 +426,7 @@
             #subdata{
 
                 width: 100%;
-                height: 12%;
+                height: 20%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -430,13 +437,26 @@
                 }
                 #interes{
                     width: 25%;
-                    margin-right: 65px;
+                    margin-right: 50px;
                 }
                 #Fecha_Ingreso{
                     width: 24%;
                     color: gray;
                     font-size:12px;
                 }                
+            }
+            #pfinal{
+                width: 100%;
+                height: 30%;
+                display: flex;
+                justify-content: left;
+                align-items: center;
+
+                #cuota{
+                    margin-left: 7.5%;
+                    height: 45%;
+                    width: 15%;
+                }
             }
 
           

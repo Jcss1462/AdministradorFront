@@ -13,8 +13,7 @@ import { IngresosService } from '../services/api';
 
 //importo para obtener el parametro en la url
 import { Router } from '@angular/router';
-import { NumberSymbol } from '@angular/common';
-import { asElementData } from '@angular/core/src/view';
+
 
 
 @Component({
@@ -64,7 +63,7 @@ export class IngresosComponent implements OnInit {
 
   ngOnInit() {
 
-    //traer entidad data
+    //traer fase data
     this._fases.getNameFase(this.id_fase)
       .subscribe((data) => {
         this.fase = data;
@@ -75,7 +74,7 @@ export class IngresosComponent implements OnInit {
       );
 
 
-    //traiho los ingresos de la fase
+    //traigo los ingresos de la fase
     this._ingreso.getAllingresos(this.id_fase)
       .subscribe((data) => {
         this.listingreso = data;

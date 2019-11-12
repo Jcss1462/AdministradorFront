@@ -15,6 +15,7 @@ import { ProyectsComponent } from './proyects/proyects.component';
 import { FasesComponent } from './fases/fases.component';
 import { PresupuestosComponent } from './presupuestos/presupuestos.component';
 import { IngresosComponent } from './ingresos/ingresos.component';
+import { GastosComponent } from './gastos/gastos.component';
 
 //http
 import { HttpClientModule } from '@angular/common/http';
@@ -30,7 +31,8 @@ import{SucursalService} from './services/api';
 import{ProyectosService} from './services/api';
 import{FasesService} from './services/api';
 import{IngresosService} from './services/api';
-import { GastosComponent } from './gastos/gastos.component';
+import{GastosService} from './services/api';
+
 
 //pipes
 import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
@@ -71,7 +73,8 @@ import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
     SucursalService,
     ProyectosService,
     FasesService,
-    IngresosService
+    IngresosService,
+    GastosService
 
   ],
   bootstrap: [AppComponent]
