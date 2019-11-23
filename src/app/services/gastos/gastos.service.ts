@@ -8,6 +8,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 import { GastosInfo } from './gastosInfo';
+import { ConfirmGasto } from './confirmgasto';
 import { NewGasto } from './newgasto';
 
 ////////////////
@@ -40,6 +41,14 @@ export class GastosService {
 
   addGasto(gasto: NewGasto): Observable<NewGasto> {
     return this.http.post<NewGasto>(this.resourceURL, gasto, httpOptions);
+  }
+
+  deleteGasto(id: number): Observable<any> {
+    return this.http.delete(this.resourceURL+"?id_gasto="+id, httpOptions);
+  }
+
+  updateGasto(check: ConfirmGasto): Observable<ConfirmGasto> {
+    return this.http.put<ConfirmGasto>(this.resourceURL, check, httpOptions)
   }
 
 }

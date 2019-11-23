@@ -49,11 +49,13 @@
               <th></th>
               <th>Entidad</th>
               <th>Presupuesto</th>
+              <th>Pago pactado</th>
               <th>Fecha presupuesto de pago</th>
               <th>Estado</th>
               <th>Fecha de pago</th>
               <th>Corte</th>
               <th>Pago</th>
+              <th>Interes</th>
               <th></th>
               <th></th>
             </tr>
@@ -68,22 +70,25 @@
               </td>
               <td>{{key.entidad}}</td>
               <td>{{key.presupuesto_gasto|pesosTransform}}</td>
+              <td>{{key.pago_pactado|pesosTransform}}</td>
               <td>{{key.fecha_presupuesto_gasto}}</td>
               <td>{{key.estadogasto}}</td>
               <td>{{key.fecha_pago}}</td>
               <td>{{key.tipocorte}}</td>
-              <td>{{key.pago|pesosTransform}}</td>
-              
-  
 
-              <td class="ingreso" *ngIf="key.pago==null&&key.tipocorte=='Puntual'">
-                <i class="fas fa-check" (click)="openIngreso(key.id_ingreso,key.tipoingreso)"></i>
+              <td *ngIf="key.pago!=0">{{key.pago|pesosTransform}}</td>
+              <td *ngIf="key.pago==0"></td>
+
+              <td *ngIf="key.interes!=null">{{key.interes}}%</td>
+              <td *ngIf="key.interes==null"></td>
+
+              <td class="ingreso">
+                <i class="fas fa-check" *ngIf="key.pago==null&&key.pago_pactado==null" (click)="openIngreso(key.id_gasto,key.fecha_presupuesto_gasto)"></i>
               </td>
-              <td class="ingreso" *ngIf="!key.pago&&key.tipocorte!='Puntual'">
-              </td>
+              
 
               <td class="especial">
-                <i class="fas fa-trash-alt" (click)="deleteIngreso(key.id_ingreso)"></i>
+                <i class="fas fa-trash-alt" (click)="deleteGastos(key.id_gasto)"></i>
               </td>
             </tr>
           </tbody>
@@ -130,11 +135,7 @@
           (change)="updateFechaPresupuesto($event)">
 
       </div>
-      <div id="selector">
 
-        <input id="cuotas" type="text" name="user" placeholder="#Cuotas" [(ngModel)]="cuotas">
-
-      </div>
 
     </div>
 
@@ -167,23 +168,24 @@
 
       <div id="newenIngreso">
 
-        $&ensp;<input id="ingreso" type="text" name="user" placeholder="Ingreso" [(ngModel)]="ingreso"
+        <input id="ingreso" type="text" name="user" placeholder="Costo" [(ngModel)]="gasto"
           (keyup)="simulacionPesos($event)" pattern="^[\d,]+$">
 
       </div>
       <div id="subdata">
-        <input class="dupla" id="interes" type="text" name="user" placeholder="Interes(%)" [(ngModel)]="interes"
-          *ngIf="tipo_seleccionado!='Interno'" (keyup)="verificar($event)">
-        <label for="start">Fecha de ingreso:&ensp;</label>
-        <input class="dupla" id="Fecha_Ingreso" type="date" name="user" placeholder="Fecha de ingreso"
-          (change)="updateFechaIngreso($event)">
-      </div>
-      <div id="pfinal">
-        <input id="cuota" type="text" name="user" placeholder="#Cuotas" [(ngModel)]="cuotas"
-          *ngIf="tipo_seleccionado!='Interno'" (keyup)="verificar($event)">
+
+        <input id="cuotas" type="text" name="user" placeholder="#Cuotas" [(ngModel)]="cuotas"
+          (keyup)="simulacionPesos($event)" pattern="^[\d,]+$">
+
+        
+        <input *ngIf="cuotas>0" id="interes" type="text" name="user" placeholder="interes" [(ngModel)]="interes"
+          (keyup)="simulacionPesos($event)" pattern="^[\d,]+$" >  <div *ngIf="cuotas>0" >&ensp;%</div>
+
+        
+
       </div>
 
-
+    
 
     </div>
 

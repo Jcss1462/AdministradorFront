@@ -6,6 +6,7 @@ import { FasesService } from '../services/api';
 
 import { GastosService } from '../services/api';
 import { GastosInfo } from '../services/api';
+import { ConfirmGasto } from '../services/api';
 import { NewGasto } from '../services/api';
 
 //importo para obtener el parametro en la url
@@ -28,12 +29,20 @@ export class GastosComponent implements OnInit {
   listGasto: GastosInfo[];
   /////////////////////////////////////
 
-   //variablas de creacion
-   nuevoGasto: NewGasto;
-   nuevaEntidad: String;
-   presupuesto: String;
-   fecha_presupuesto: String;
-   cuotas: String="";
+  //variablas de creacion
+  nuevoGasto: NewGasto;
+  nuevaEntidad: String;
+  presupuesto: String;
+  fecha_presupuesto: String;
+
+
+  //variables de modificacion
+  checkGasto: ConfirmGasto;
+  id_alterGasto: Number;
+  gasto: String;
+  cuotas: Number;
+  interes: Number=0;
+  fecha_pago: String;
 
   constructor(private router: Router, private _fases: FasesService, private _gasto: GastosService) { }
 
@@ -72,7 +81,7 @@ export class GastosComponent implements OnInit {
 
   create() {
     console.log(this.fecha_presupuesto);
-    
+
 
     if (((this.nuevaEntidad != null) || (this.nuevaEntidad != undefined))
       && ((this.presupuesto != null) || (this.presupuesto != undefined))
@@ -85,13 +94,6 @@ export class GastosComponent implements OnInit {
       this.nuevoGasto.fecha_presupuesto_gasto = this.fecha_presupuesto;
       this.nuevoGasto.presupuesto_gasto = Number(this.presupuesto.replace(/,/g, ''));
 
-      if(this.cuotas.length==0||this.cuotas.length==undefined){
-        this.nuevoGasto.cuotas=0;
-        this.nuevoGasto.id_tipocorte=1;
-      }else{
-        this.nuevoGasto.cuotas=Number(this.cuotas);
-        this.nuevoGasto.id_tipocorte=2;
-      }
 
       this.nuevoGasto.id_estadogasto = 1;
       this.nuevoGasto.id_fases = this.id_fase;
@@ -122,6 +124,90 @@ export class GastosComponent implements OnInit {
   }
 
 
+  deleteGastos(id) {
+
+    this._gasto.deleteGasto(id).subscribe((data) => {
+
+      if (data == null) {
+        alert("Gasto eliminado");
+        this.ngOnInit();
+      }
+
+    }, (error) => {
+      console.log(error.message);
+      alert("Error en la eliminacion");
+    }
+    );
+
+
+  }
+
+  ingreasar() {
+    console.log("gasto: " + this.gasto);
+    console.log("cuotas: " + this.cuotas);
+    console.log("interes: " + this.interes);
+
+    if ((this.gasto != null) || (this.gasto != undefined)) {
+
+      this.checkGasto=new ConfirmGasto;
+      this.checkGasto.id_gasto=this.id_alterGasto;
+
+
+      let newPagoPactado=Number(this.gasto.replace(/,/g, ''));
+
+
+      if(this.cuotas==0||this.cuotas==undefined){
+
+        this.checkGasto.pago_pactado=newPagoPactado;
+        this.checkGasto.cuotas=0;
+        this.checkGasto.id_tipocorte=1;
+        this.checkGasto.id_estadogasto=2;
+        this.checkGasto.interes=0;
+        this.checkGasto.pago=newPagoPactado;
+        this.checkGasto.fecha_pago=this.fecha_pago;
+
+      }else{
+
+        this.checkGasto.pago_pactado=newPagoPactado+((Number(this.interes)*newPagoPactado)/100);
+        this.checkGasto.cuotas=this.cuotas;
+        this.checkGasto.id_tipocorte=2;
+        this.checkGasto.id_estadogasto=1;
+        this.checkGasto.interes=this.interes;
+        this.checkGasto.pago=null;
+        this.checkGasto.fecha_pago=null;
+    
+      }
+
+
+      this._gasto
+        .updateGasto(this.checkGasto)
+        .subscribe((data) => {
+
+          if (data) {
+            alert("gasto agragado exitosamente");
+            this.ngOnInit();
+          } else {
+            alert("Ha ocurrido un problema y no se ha completado la operacion");
+          }
+
+
+        }, (error) => {
+          console.log(error.message);
+          alert("Eror de insercion, verificar los datos");
+        }
+        );
+
+
+
+    } else {
+      alert("Debe ingresar un gasto");
+    }
+  }
+
+
+
+
+
 
   ////////////////////////////////////////////////////// options interface
 
@@ -139,9 +225,30 @@ export class GastosComponent implements OnInit {
     a.setAttribute("style", "display: none");
   }
 
+  openIngreso(id_aG, fechaPresupuesto) {
+
+    //uso estos daston en ingreasar()
+    this.id_alterGasto = id_aG;
+    this.fecha_pago=fechaPresupuesto;
+
+    console.log(id_aG);
+
+    let a = document.getElementById('editar');
+    if (a.style.display == "none") {
+      a.setAttribute("style", "display: inline-block");
+    } else {
+      a.setAttribute("style", "display: none");
+    }
+  }
+
+  closeEdit() {
+    let a = document.getElementById('editar');
+    a.setAttribute("style", "display: none");
+  }
+
   simulacionPesos(e) {
     console.log(e.key)
-    if ((e.key >= 0 && e.key <= 9) || (e.key == "Backspace")||(e.key=="ArrowRight")||(e.key=="ArrowLeft")) {
+    if ((e.key >= 0 && e.key <= 9) || (e.key == "Backspace") || (e.key == "ArrowRight") || (e.key == "ArrowLeft")) {
       e.target.value = (parseInt(e.target.value.replace(/[^\d]+/gi, '')) || 0).toLocaleString('en-US')
     } else {
       alert("solo valores numericos en este campo");
@@ -149,7 +256,7 @@ export class GastosComponent implements OnInit {
   }
 
   verificar(e) {
-    if ((e.key >= 0 && e.key <= 9) || (e.key == "Backspace")||(e.key=="ArrowRight")||(e.key=="ArrowLeft")) {
+    if ((e.key >= 0 && e.key <= 9) || (e.key == "Backspace") || (e.key == "ArrowRight") || (e.key == "ArrowLeft")) {
 
 
     } else {

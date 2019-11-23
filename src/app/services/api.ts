@@ -30,6 +30,8 @@ import{NewIngreso} from '../services/ingresos/newingreso';
 import{ConfirmIngreso} from '../services/ingresos/confirmIngreso';
 import{GastosInfo} from '../services/gastos/gastosInfo';
 import{NewGasto} from '../services/gastos/newgasto';
+import{ConfirmGasto} from '../services/gastos/confirmgasto';
+
 
 
 export{
@@ -63,5 +65,6 @@ export{
     NewIngreso,
     ConfirmIngreso,
     GastosInfo,
-    NewGasto   
+    NewGasto,
+    ConfirmGasto   
 };

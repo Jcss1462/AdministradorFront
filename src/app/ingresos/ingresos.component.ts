@@ -162,13 +162,13 @@ export class IngresosComponent implements OnInit {
       this.check.fecha_ingreso = this.fecha_ingreso;
 
       if (this.interes == undefined || this.interes == 0) {
-        this.check.interes = null;
+        this.check.interes = 0;
       }else{
         this.check.interes = this.interes;
       }
 
       if (this.cuotas == undefined || this.cuotas == 0) {
-        this.check.cuotas = null;
+        this.check.cuotas = 1;
       }else{
         this.check.cuotas = this.cuotas;
       }
