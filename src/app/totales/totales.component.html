@@ -1,0 +1,42 @@
+<div id="container">
+
+  <div id="margen" (click)="refrech()">
+
+
+    <div id="ingresos">
+
+      <div class="item" id="pi">
+        <div class="letrero"><b>Presupuesto total de ingrseo:</b></div>
+        <div class="respuesta"><b>{{presupuestIngreso|pesosTransform}}</b></div>
+      </div>
+
+      <div class="item" id="ing">
+        <div class="letrero"><b>Ingresos totales:</b></div>
+        <div class="respuesta"><b>{{totalIngreso|pesosTransform}}</b></div>
+      </div>
+
+    </div>
+
+    <div id="gastos">
+
+      <div class="item" id="pg">
+        <div class="letrero"><b>Presupuesto total de gastos:</b></div>
+        <div class="respuesta"><b>{{presupuestGasto|pesosTransform}}</b></div>
+      </div>
+
+      <div class="item" id="tp">
+        <div class="letrero"><b>Total a pagar:</b></div>
+        <div class="respuesta"><b>{{totalPagar|pesosTransform}}</b></div>
+      </div>
+
+      <div class="item" id="tg">
+          <div class="letrero"><b>Total gastado:</b></div>
+          <div class="respuesta"><b>{{totalGastado|pesosTransform}}</b></div>
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>

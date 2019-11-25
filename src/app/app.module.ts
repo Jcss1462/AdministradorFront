@@ -36,6 +36,7 @@ import{GastosService} from './services/api';
 
 //pipes
 import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
+import { TotalesComponent } from './totales/totales.component';
 
 
 
@@ -55,7 +56,8 @@ import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
     PresupuestosComponent,
     IngresosComponent,
     GastosComponent,
-    PesosTransformPipe
+    PesosTransformPipe,
+    TotalesComponent
   ],
   imports: [
     BrowserModule,

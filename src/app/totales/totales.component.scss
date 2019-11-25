@@ -1,0 +1,76 @@
+#container{
+    width: 100%;
+    height: 100%;
+    //background: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 50%;
+
+    #margen{
+
+        width: 95%;
+        height: 100%;
+        //background: red;
+        display: inline-block;
+        transition: 1s ease-in-out;
+
+        #ingresos{
+
+            width: 100%;
+            height: 50%;
+            min-width: 50%;
+            //background: yellow;
+            display: flex;
+            align-items: center;
+
+        }
+
+        #gastos{
+
+            width: 100%;
+            height: 50%;
+            min-width: 50%;
+            //background: yellow;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .item{
+
+            width:350px;
+            height: 80%;
+            display: flex;
+            border:  1px solid rgb(172, 172, 172); 
+            margin-right: 30px;
+
+            
+
+            .letrero{
+                width:50%;
+                height: 100%;
+                background: rgb(196, 196, 196);
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+            }
+            .respuesta{
+                width:50%;
+                height: 100%;
+                background: white;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                align-items: center;
+                overflow-x:auto;
+            }
+        }
+
+    }
+    #margen:hover{
+        cursor:pointer;
+        background: rgb(190, 190, 190);   
+    }
+}

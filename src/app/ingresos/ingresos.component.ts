@@ -57,8 +57,6 @@ export class IngresosComponent implements OnInit {
   constructor(private router: Router, private _fases: FasesService, private _ingreso: IngresosService) {
     this.id_fase = this.router.parseUrl(this.router.url).queryParams.id_fase;
     this.direccion = this.router.parseUrl(this.router.url).queryParams.dir;
-
-
   }
 
   ngOnInit() {
