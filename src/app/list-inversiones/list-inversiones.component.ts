@@ -64,7 +64,12 @@ export class ListInversionesComponent implements OnInit {
     if ((this.codeIngreso != null) || (this.codeIngreso != undefined)) {
 
 
-
+      for(let idx=0;idx<this.inversiones.length;idx++){
+        if(this.codeIngreso==this.inversiones[idx].id_ingreso){
+          alert("Inversión ya existente");
+          return;
+        }
+      }
   
 
       this.nuevoDato = new EnlaceII;
