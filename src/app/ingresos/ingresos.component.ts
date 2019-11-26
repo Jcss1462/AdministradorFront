@@ -159,6 +159,17 @@ export class IngresosComponent implements OnInit {
       this.check.id_estadoingreso = 2;
       this.check.fecha_ingreso = this.fecha_ingreso;
 
+      if(this.interes<0||this.interes>100){
+        alert("El porcentaje de interes debe estar entr el 0% y el 100%");
+        return;
+      }
+
+      if(this.cuotas<0){
+        alert("No puede haber una cuota negativa");
+        return;
+      }
+
+
       if (this.interes == undefined || this.interes == 0) {
         this.check.interes = 0;
       }else{
@@ -170,6 +181,8 @@ export class IngresosComponent implements OnInit {
       }else{
         this.check.cuotas = this.cuotas;
       }
+
+      
 
 
 
