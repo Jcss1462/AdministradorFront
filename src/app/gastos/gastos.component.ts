@@ -44,12 +44,14 @@ export class GastosComponent implements OnInit {
   interes: Number=0;
   fecha_pago: String;
 
-  constructor(private router: Router, private _fases: FasesService, private _gasto: GastosService) { }
-
-  ngOnInit() {
+  constructor(private router: Router, private _fases: FasesService, private _gasto: GastosService) { 
+    
     this.id_fase = this.router.parseUrl(this.router.url).queryParams.id_fase;
     this.direccion = this.router.parseUrl(this.router.url).queryParams.dir;
 
+  }
+
+  ngOnInit() {
 
     //traer fase data
     this._fases.getNameFase(this.id_fase)
@@ -210,6 +212,14 @@ export class GastosComponent implements OnInit {
 
 
   ////////////////////////////////////////////////////// options interface
+
+
+  redirectSubgastos(idGasto,entidad){
+
+    console.log(idGasto);
+    window.location.href = '/subgasto?id_gasto='+idGasto+"&entidad="+entidad;
+
+  }
 
   showAdd(e) {
     let a = document.getElementById('añadir');

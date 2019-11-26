@@ -1,0 +1,46 @@
+<div id="container">
+
+
+
+  <div id="tableBox">
+    <div id="margen">
+
+      <div id="encabezado">
+          <b>&ensp;{{entidad}}</b>
+      </div>
+
+      <div id="tabla">
+          <table>
+  
+            <thead>
+              <tr>
+                <th>Fecha de pago</th>
+                <th>Estado</th>
+                <th>Valor a pagar</th>
+                <th>valor cancelado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let key of listSubgastos; let i = index">
+                <td>{{key.fecha_de_pago}}</td>
+                <td>{{key.estadogasto}}</td>
+                <td>{{key.valor_a_pagar|pesosTransform}}</td>
+                <td>{{key.valorcancelado|pesosTransform}}</td>
+                <td *ngIf="key.estadogasto=='Pendiente'&&controlador==i">
+                    <i class="fas fa-money-bill-alt" (click)="pagar(key.valor_a_pagar,key.id_subgasto)"></i>
+                </td>
+                <td  *ngIf="key.estadogasto!='Pendiente'||contrlador!=i">
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+  </div>
+
+
+
+</div>

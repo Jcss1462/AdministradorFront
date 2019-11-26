@@ -64,7 +64,7 @@
             <tr *ngFor="let key of listGasto">
 
               <td class="detalle" *ngIf="key.tipocorte=='Mensual'">
-                <i class="fas fa-clipboard-list"></i>
+                <i class="fas fa-clipboard-list" (click)="redirectSubgastos(key.id_gasto,key.entidad)"></i>
               </td>
               <td class="detalle" *ngIf="key.tipocorte!='Mensual'">
               </td>
