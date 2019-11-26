@@ -215,6 +215,11 @@ export class SucursalesComponent implements OnInit {
     }
   }
 
+  logout() {
+    window.location.href = '/';
+  }
+
+
 
 
 }

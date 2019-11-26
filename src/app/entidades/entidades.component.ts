@@ -289,5 +289,10 @@ export class EntidadesComponent implements OnInit {
     window.location.href = '/sucursales?entidad='+id_entidad;
   }
 
+  logout() {
+    window.location.href = '/';
+  }
+
+
 
 }

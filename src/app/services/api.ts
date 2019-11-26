@@ -10,6 +10,7 @@ import{FasesService} from '../services/fases/fases.service';
 import{IngresosService} from '../services/ingresos/ingresos.service';
 import{GastosService} from '../services/gastos/gastos.service';
 import{SubgastoService} from '../services/subgasto/subgasto.service';
+import{ClientsucursalesService} from '../services/clientes_sucursales/clientsucursales.service';
 
 //objetos
 import{Data} from '../services/login/data';
@@ -33,7 +34,8 @@ import{NewGasto} from '../services/gastos/newgasto';
 import{ConfirmGasto} from '../services/gastos/confirmgasto';
 import{subGastoInfo} from '../services/subgasto/subgastoinfo';
 import{subGastoConfirm} from '../services/subgasto/subgastoconfirm';
-
+import{EnlaceCS} from '../services/clientes_sucursales/enlaceCS';
+import{CliSuc} from '../services/clientes_sucursales/clisuc';
 
 
 export{
@@ -49,6 +51,7 @@ export{
     IngresosService,
     GastosService,
     SubgastoService,
+    ClientsucursalesService,
 
     //objetos
     Data,
@@ -71,5 +74,7 @@ export{
     NewGasto,
     ConfirmGasto,
     subGastoInfo,
-    subGastoConfirm   
+    subGastoConfirm,
+    EnlaceCS,
+    CliSuc   
 };

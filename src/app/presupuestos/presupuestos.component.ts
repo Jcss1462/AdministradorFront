@@ -58,4 +58,9 @@ export class PresupuestosComponent implements OnInit {
     }
   }
 
+  logout() {
+    window.location.href = '/';
+  }
+
+
 }

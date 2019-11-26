@@ -210,4 +210,9 @@ export class ProyectsComponent implements OnInit {
     }
   }
 
+  logout() {
+    window.location.href = '/';
+  }
+
+
 }

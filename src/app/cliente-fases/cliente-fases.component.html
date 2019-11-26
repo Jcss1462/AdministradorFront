@@ -5,15 +5,7 @@
     <div id="buscar">
 
 
-      <div id=conjunto>
 
-        <div id="busbar" class="entradas">
-
-          <input type="text" name="user" placeholder="Buscar" [(ngModel)]="busqueda" (keyup)="updateBusqueda($event)">
-
-        </div>
-
-      </div>
 
     </div>
 
@@ -32,17 +24,6 @@
       <div id="optspace">
 
         <div id="optbox">
-
-          <div id="añadirUsuario" class="opt" (click)="redirectAddUsser()">
-
-            <div class="logo">
-              <i class="fas fa-user-plus"></i>
-            </div>
-            <div class="mesage">
-              Añadir usuario
-            </div>
-
-          </div>
 
           <div id="Log out" class="opt" (click)="logout()">
 
@@ -98,11 +79,7 @@
 
           <div id="optmenu">
 
-            <div id="optbtn" (click)="showAdd($event)">
 
-              <i class="fas fa-plus"></i>
-
-            </div>
 
 
           </div>
@@ -114,7 +91,7 @@
           <div class="item" *ngFor="let key of listFases; let i = index" id="{{key.id_fases}}">
 
 
-            <div class="elm" id="1" (click)="redirectPresupuesto(key.id_fases)">
+            <div class="elm" id="1" >
 
               <div id="fase">
                 {{key.fase}}
@@ -122,7 +99,7 @@
 
             </div>
 
-            <div class="elm" id="2" (click)="redirectPresupuesto(key.id_fases)">
+            <div class="elm" id="2" >
 
               <div id="fecha_inicio">
                 Fecha incicio:&ensp;<b>{{key.fecha_inicio}}</b>
@@ -130,7 +107,7 @@
 
             </div>
 
-            <div class="elm" id="4" (click)="redirectPresupuesto(key.id_fases)">
+            <div class="elm" id="4" >
 
               <div id="fecha_final" *ngIf="key.fecha_finalizacion==null">
                 Fecha final:&ensp;<b>-</b>
@@ -142,7 +119,7 @@
 
             </div>
 
-            <div class="elm" id="5" (click)="redirectPresupuesto(key.id_fases)">
+            <div class="elm" id="5">
 
               <div id="estado">
                 Estado:&ensp;<b>{{key.estadofase}}</b>
@@ -152,11 +129,7 @@
 
             <div class="elm" id="3">
 
-              <div id="editar">
 
-                <i class="fas fa-pencil-alt"></i>
-
-              </div>
 
             </div>
 
@@ -172,37 +145,5 @@
 
   </div>
 
-
-</div>
-
-
-<!--------------------------------añadir--------------------------------------->
-
-<div id="añadir" style="display: none">
-
-  <div id="cabecera">
-
-    <div id="closebox">
-
-      <i class="fas fa-window-close" (click)="closeadd()"></i>
-
-    </div>
-
-  </div>
-  <div id="contenido">
-
-    <div id="inputbox">
-
-      <input type="text" name="user" placeholder=" Nueva fase" [(ngModel)]="nueva">
-
-    </div>
-
-    <div id="añadirbox">
-
-      <button type="submit" (click)="create()"><b>Crear</b></button>
-
-    </div>
-
-  </div>
 
 </div>

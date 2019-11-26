@@ -18,6 +18,9 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { GastosComponent } from './gastos/gastos.component';
 import { TotalesComponent } from './totales/totales.component';
 import { SubgastoComponent } from './subgasto/subgasto.component';
+import { ClientesSucursalesComponent } from './clientes-sucursales/clientes-sucursales.component';
+
+
 
 //http
 import { HttpClientModule } from '@angular/common/http';
@@ -35,11 +38,13 @@ import{FasesService} from './services/api';
 import{IngresosService} from './services/api';
 import{GastosService} from './services/api';
 import{SubgastoService} from './services/api';
+import{ClientsucursalesService} from './services/api';
 
 
 //pipes
 import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
-
+import { ClientesProyectosComponent } from './clientes-proyectos/clientes-proyectos.component';
+import { ClienteFasesComponent } from './cliente-fases/cliente-fases.component';
 
 
 @NgModule({
@@ -57,7 +62,10 @@ import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
     GastosComponent,
     PesosTransformPipe,
     TotalesComponent,
-    SubgastoComponent
+    SubgastoComponent,
+    ClientesSucursalesComponent,
+    ClientesProyectosComponent,
+    ClienteFasesComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +85,8 @@ import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
     FasesService,
     IngresosService,
     GastosService,
-    SubgastoService
+    SubgastoService,
+    ClientsucursalesService
 
   ],
   bootstrap: [AppComponent]

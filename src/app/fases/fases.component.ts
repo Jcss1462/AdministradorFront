@@ -220,4 +220,9 @@ export class FasesComponent implements OnInit {
     }
   }
 
+  logout() {
+    window.location.href = '/';
+  }
+
+
 }
