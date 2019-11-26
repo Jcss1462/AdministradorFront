@@ -5,7 +5,7 @@
     <div id="buscar">
 
 
-      
+
 
     </div>
 
@@ -36,7 +36,7 @@
 
           </div>
 
-          
+
 
         </div>
 
@@ -88,34 +88,34 @@
 
         <div id="itemcontainer">
 
-          <div class="item" *ngFor="let key of inversiones; let i = index">
-            
-
-            <div class="elm" id="1" (click)="redirectProyects(key.id_sucursal)">
-
-              <div id="sucursal">
-                {{key.sucursal}}
-              </div>
-
-            </div>
-
-            <div class="elm" id="2" (click)="redirectProyects(key.id_sucursal)">
-
-              <div id="direccion">
-                {{key.direccion}}
-              </div>
-
-            </div>
-
-            <div class="elm" id="4" (click)="redirectProyects(key.id_sucursal)">
-
-              <div id="cantidad">
-                {{key.cantidad}} 
-              </div>
-
-            </div>
 
 
+          <div id="tabla">
+            <table>
+
+              <thead>
+                <tr>
+                  <th>Invercion</th>
+                  <th>Interes</th>
+                  <th>Fecha inversión</th>
+                  <th>#Cuotas</th>
+                  <th>Ganancia total</th>
+                  <th>Ganacia_actual</th>
+                  <th>Fecha de retribución</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let key of inversiones">
+                  <td>{{key.invertido|pesosTransform}}</td>
+                  <td>{{key.interes}}%</td>
+                  <td>{{key.fecha_inversion}}</td>
+                  <td>{{key.cuotas_fijadas}}</td>
+                  <td>{{key.ganancia_total|pesosTransform}}</td>
+                  <td>{{key.ganacia_actual|pesosTransform}}</td>
+                  <td>{{key.fecha_retribucion}}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
 
@@ -149,7 +149,7 @@
     <div class="inputbox">
 
       <input type="text" name="codigo" placeholder="Codigo" [(ngModel)]="codeIngreso">
-    
+
     </div>
 
     <div id="añadirbox">

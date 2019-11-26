@@ -1,4 +1,5 @@
 export class InversionInfo {
+    id_ingreso: Number
     Invertido: Number;
     interes: Number;
     fecha_inversion: String;
