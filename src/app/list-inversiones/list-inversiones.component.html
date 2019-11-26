@@ -1,0 +1,163 @@
+<div id="container">
+
+  <div class="topnav">
+
+    <div id="buscar">
+
+
+      
+
+    </div>
+
+    <div id="secion">
+
+      <div id="secionbox">
+
+        <div id="icon" (click)="activarOpt()">
+
+          <i class="fas fa-user"></i>
+
+        </div>
+
+      </div>
+
+      <div id="optspace">
+
+        <div id="optbox">
+
+          <div id="Log out" class="opt" (click)="logout()">
+
+            <div class="logo">
+              <i class="fas fa-sign-out-alt"></i>
+            </div>
+            <div class="mesage">
+              Log out
+            </div>
+
+          </div>
+
+          
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <div class="contenido" (click)="propieties($event)">
+
+    <div id="cabecera">
+      <div id="encabezado" *ngFor="let key of usserData">
+        Bienvenido&ensp;<b>{{key.nombre}}</b>
+      </div>
+    </div>
+
+    <div id="tabbox">
+
+      <div id="marc">
+
+        <div id="entidadbox">
+
+          <div id="textbox">
+
+            <div id="text">
+
+              Inversiones
+
+            </div>
+
+
+          </div>
+
+          <div id="optmenu">
+
+            <div id="optbtn" (click)="showAdd($event)">
+
+              <i class="fas fa-plus"></i>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <div id="itemcontainer">
+
+          <div class="item" *ngFor="let key of inversiones; let i = index">
+            
+
+            <div class="elm" id="1" (click)="redirectProyects(key.id_sucursal)">
+
+              <div id="sucursal">
+                {{key.sucursal}}
+              </div>
+
+            </div>
+
+            <div class="elm" id="2" (click)="redirectProyects(key.id_sucursal)">
+
+              <div id="direccion">
+                {{key.direccion}}
+              </div>
+
+            </div>
+
+            <div class="elm" id="4" (click)="redirectProyects(key.id_sucursal)">
+
+              <div id="cantidad">
+                {{key.cantidad}} 
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!--------------------------------añadir--------------------------------------->
+
+<div id="añadir" style="display: none">
+
+  <div id="cabecera">
+
+    <div id="closebox">
+
+      <i class="fas fa-window-close" (click)="closeadd()"></i>
+
+    </div>
+
+  </div>
+  <div id="contenido">
+
+    <div class="inputbox">
+
+      <input type="text" name="codigo" placeholder="Codigo" [(ngModel)]="codeIngreso">
+    
+    </div>
+
+    <div id="añadirbox">
+
+      <button type="submit" (click)="create()"><b>Crear</b></button>
+
+    </div>
+
+  </div>
+
+</div>

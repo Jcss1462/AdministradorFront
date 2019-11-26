@@ -19,6 +19,9 @@ import { GastosComponent } from './gastos/gastos.component';
 import { TotalesComponent } from './totales/totales.component';
 import { SubgastoComponent } from './subgasto/subgasto.component';
 import { ClientesSucursalesComponent } from './clientes-sucursales/clientes-sucursales.component';
+import { ClientesProyectosComponent } from './clientes-proyectos/clientes-proyectos.component';
+import { ClienteFasesComponent } from './cliente-fases/cliente-fases.component';
+import { ListInversionesComponent } from './list-inversiones/list-inversiones.component';
 
 
 
@@ -39,12 +42,12 @@ import{IngresosService} from './services/api';
 import{GastosService} from './services/api';
 import{SubgastoService} from './services/api';
 import{ClientsucursalesService} from './services/api';
+import{ListaInversionesService} from './services/api';
 
 
 //pipes
 import { PesosTransformPipe } from './pipes/pesos-transform.pipe';
-import { ClientesProyectosComponent } from './clientes-proyectos/clientes-proyectos.component';
-import { ClienteFasesComponent } from './cliente-fases/cliente-fases.component';
+
 
 
 @NgModule({
@@ -65,7 +68,8 @@ import { ClienteFasesComponent } from './cliente-fases/cliente-fases.component';
     SubgastoComponent,
     ClientesSucursalesComponent,
     ClientesProyectosComponent,
-    ClienteFasesComponent
+    ClienteFasesComponent,
+    ListInversionesComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +90,8 @@ import { ClienteFasesComponent } from './cliente-fases/cliente-fases.component';
     IngresosService,
     GastosService,
     SubgastoService,
-    ClientsucursalesService
+    ClientsucursalesService,
+    ListaInversionesService
 
   ],
   bootstrap: [AppComponent]

@@ -14,6 +14,7 @@ import { SubgastoComponent } from './subgasto/subgasto.component';
 import { ClientesSucursalesComponent } from './clientes-sucursales/clientes-sucursales.component';
 import { ClientesProyectosComponent } from './clientes-proyectos/clientes-proyectos.component';
 import { ClienteFasesComponent } from './cliente-fases/cliente-fases.component';
+import { ListInversionesComponent } from './list-inversiones/list-inversiones.component';
 
 
 
@@ -31,6 +32,10 @@ const routes: Routes = [
   {path: 'clienteSucursal', component: ClientesSucursalesComponent},
   {path: 'clienteProyecto', component: ClientesProyectosComponent},
   {path: 'clienteFases', component: ClienteFasesComponent},
+
+  {path: 'listInversiones', component: ListInversionesComponent},
+
+
   {path: '',  component: LoginComponent, pathMatch: 'full'},
 ];
 

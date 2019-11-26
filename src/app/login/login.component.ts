@@ -69,6 +69,10 @@ export class LoginComponent implements OnInit {
               window.location.href = '/clienteSucursal?usser='+data[0].id_usuario;
             }
 
+            if(data[0].tipo=="inversor"){
+              window.location.href = '/listInversiones?usser='+data[0].id_usuario;
+            }
+
           }
         }, (error) => {
           console.log(error.message);
